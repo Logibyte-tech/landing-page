@@ -2,7 +2,8 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react'
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa'
+import { MapPin, Phone, Mail } from 'lucide-react'
 
 const navigation = {
   company: [
@@ -24,10 +25,11 @@ const navigation = {
     { name: 'Privacy Policy', href: '/privacy' },
   ],
   social: [
-    { name: 'Facebook', href: '#', icon: Facebook },
-    { name: 'Twitter', href: '#', icon: Twitter },
-    { name: 'LinkedIn', href: '#', icon: Linkedin },
-    { name: 'Instagram', href: '#', icon: Instagram },
+    { name: 'Facebook', href: '#', icon: FaFacebook },
+    { name: 'X', href: '#', icon: FaTwitter },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/logibyte-tech/', icon: FaLinkedin },
+    { name: 'Instagram', href: '#', icon: FaInstagram },
+    { name: 'GitHub', href: 'https://github.com/Logibyte-tech', icon: FaGithub },
   ],
 }
 

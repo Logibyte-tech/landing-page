@@ -192,20 +192,6 @@
   opacity: 0.04;
 }
 
-/* Logo Carousel Animation */
-@keyframes scroll-logos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll-logos {
-  animation: scroll-logos 30s linear infinite;
-}
-
 /* Responsive logo carousel item styling */
 .partner-logo-carousel {
   display: flex;
@@ -215,6 +201,7 @@
   width: 100%;
   padding: 1rem 0;
 }
+
 .partner-logo-item {
   flex-shrink: 0;
   display: flex;
@@ -223,12 +210,13 @@
   height: 5rem;
   width: 10rem;
   opacity: 0.85;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s;
 }
+
 .partner-logo-item:hover {
   opacity: 1;
-  transform: scale(1.05);
 }
+
 @media (max-width: 640px) {
   .partner-logo-item {
     width: 6rem;
@@ -236,5 +224,31 @@
   }
   .partner-logo-carousel {
     gap: 1.5rem;
+  }
+}
+
+/* Logo Carousel Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1.5rem)); /* -50% for half the content, -1.5rem for half the gap */
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .animate-scroll {
+    gap: 2rem;
   }
 } 

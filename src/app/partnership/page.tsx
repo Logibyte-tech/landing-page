@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Handshake, Users, Globe, Rocket, ArrowRight, Check } from 'lucide-react'
 import Image from 'next/image'
+import PartnerLogoCarousel from '../../components/partnership/PartnerLogoCarousel'
 
 const benefits = [
   {
@@ -69,17 +70,6 @@ const partnershipTypes: PartnershipType[] = [
   }
 ]
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-const partnerLogos = [
-  { name: 'Morgan Stanley', src: '/partners/morgan-stanley.svg' },
-  { name: 'National Bank', src: '/partners/national-bank.svg' },
-  { name: 'RBC', src: '/partners/rbc.svg' },
-  { name: 'CIBC', src: '/partners/cibc.svg' },
-  { name: 'TD', src: '/partners/td.svg' },
-  { name: 'Expedia Group', src: '/partners/expedia-group.svg' },
-  { name: 'MongoDB', src: '/partners/mongodb.svg' },
-  { name: 'Ericsson', src: '/partners/ericsson.svg' },
-]
 
 export default function Partnership() {
   return (
@@ -111,22 +101,7 @@ export default function Partnership() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-center">Our Partners</h2>
-          <div className="overflow-hidden w-full">
-            <div className="partner-logo-carousel animate-scroll-logos">
-              {partnerLogos.concat(partnerLogos).map((logo, idx) => (
-                <div key={idx} className="partner-logo-item flex items-center justify-center h-16">
-                  <Image 
-                    src={logo.src} 
-                    alt={logo.name} 
-                    width={120} 
-                    height={60} 
-                    className="object-contain h-16 w-auto"
-                    unoptimized
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <PartnerLogoCarousel />
         </div>
       </section>
 
