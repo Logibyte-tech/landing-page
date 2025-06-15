@@ -71,14 +71,14 @@ const partnershipTypes: PartnershipType[] = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const partnerLogos = [
-  { name: 'Morgan Stanley', src: `${basePath}/partners/morgan-stanley.svg` },
-  { name: 'National Bank', src: `${basePath}/partners/national-bank.svg` },
-  { name: 'RBC', src: `${basePath}/partners/rbc.svg` },
-  { name: 'CIBC', src: `${basePath}/partners/cibc.svg` },
-  { name: 'TD', src: `${basePath}/partners/td.svg` },
-  { name: 'Expedia Group', src: `${basePath}/partners/expedia-group.svg` },
-  { name: 'MongoDB', src: `${basePath}/partners/mongodb.svg` },
-  { name: 'Ericsson', src: `${basePath}/partners/ericsson.svg` },
+  { name: 'Morgan Stanley', src: '/partners/morgan-stanley.svg' },
+  { name: 'National Bank', src: '/partners/national-bank.svg' },
+  { name: 'RBC', src: '/partners/rbc.svg' },
+  { name: 'CIBC', src: '/partners/cibc.svg' },
+  { name: 'TD', src: '/partners/td.svg' },
+  { name: 'Expedia Group', src: '/partners/expedia-group.svg' },
+  { name: 'MongoDB', src: '/partners/mongodb.svg' },
+  { name: 'Ericsson', src: '/partners/ericsson.svg' },
 ]
 
 export default function Partnership() {
@@ -107,19 +107,22 @@ export default function Partnership() {
         </div>
       </section>
 
-      {/* Our Partners (Logo Carousel) Section – inserted on top of others */}
+      {/* Our Partners (Logo Carousel) Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-center">Our Partners</h2>
           <div className="overflow-hidden w-full">
             <div className="partner-logo-carousel animate-scroll-logos">
               {partnerLogos.concat(partnerLogos).map((logo, idx) => (
-                <div key={idx} className="partner-logo-item">
-                  {logo.src === "/partners/expedia-group.svg" || logo.src === "/partners/mongodb.svg" || logo.src === "/partners/ericsson.svg" || logo.src === "/partners/iqware.svg" ? (
-                    <div style={{ background: "#f0f0f0", color: "#333", padding: "0.5rem", borderRadius: "0.25rem", textAlign: "center", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}> {logo.name} </div>
-                  ) : (
-                    <Image src={logo.src} alt={logo.name} width={120} height={60} className="object-contain h-16 w-auto" />
-                  )}
+                <div key={idx} className="partner-logo-item flex items-center justify-center h-16">
+                  <Image 
+                    src={logo.src} 
+                    alt={logo.name} 
+                    width={120} 
+                    height={60} 
+                    className="object-contain h-16 w-auto"
+                    unoptimized
+                  />
                 </div>
               ))}
             </div>
