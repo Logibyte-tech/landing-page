@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="240" viewBox="0 0 700 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Modern gradients -->
+    <linearGradient id="box-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="box-green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <!-- Enhanced glow effects -->
+    <filter id="box-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="box-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#1D4ED8" flood-opacity="0.15"/>
+    </filter>
+    <!-- Text shadow for better visibility -->
+    <filter id="text-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Modern 3D Box with enhanced effects -->
+  <g filter="url(#box-shadow)">
+    <!-- Box face with enhanced gradient -->
+    <polygon points="100,100 180,90 190,170 110,180" fill="url(#box-blue)" stroke="#3B82F6" stroke-width="2" filter="url(#box-glow)"/>
+    <!-- Box side with improved contrast -->
+    <polygon points="180,90 220,120 230,200 190,170" fill="url(#box-green)" stroke="#10B981" stroke-width="2"/>
+    <!-- Box top with subtle transparency -->
+    <polygon points="100,100 180,90 220,120 140,130" fill="#1E40AF" opacity="0.2"/>
+    
+    <!-- Modern antenna design -->
+    <path d="M140,90 L140,60" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="140" cy="60" r="5" fill="#3B82F6" filter="url(#box-glow)"/>
+    
+    <!-- Digital dots with glow -->
+    <g filter="url(#box-glow)">
+      <circle cx="130" cy="120" r="3" fill="#3B82F6"/>
+      <circle cx="150" cy="110" r="3" fill="#3B82F6"/>
+      <circle cx="160" cy="130" r="3" fill="#3B82F6"/>
+      <circle cx="120" cy="140" r="3" fill="#3B82F6"/>
+      <circle cx="145" cy="150" r="3" fill="#3B82F6"/>
+    </g>
+  </g>
+  
+  <!-- Subtle shadow with improved spread -->
+  <ellipse cx="170" cy="210" rx="65" ry="12" fill="#1D4ED8" opacity="0.12"/>
+  
+  <!-- Modern typography with improved spacing and shadows -->
+  <g filter="url(#text-shadow)">
+    <text x="260" y="140" font-family="'Inter', 'Orbitron', sans-serif" font-size="100" font-weight="800" letter-spacing="2px">
+      <tspan fill="#10B981">Logi</tspan><tspan fill="#1D4ED8">Byte</tspan>
+    </text>
+    <!-- Binary code with modern styling -->
+    <text
+      x="260"
+      y="190"
+      font-family="JetBrains Mono, monospace"
+      font-size="18"
+      fill="#3B82F6"
+      textLength="440"
+      lengthAdjust="spacingAndGlyphs"
+      filter="url(#glow)"
+    >
+    <tspan fill="#1D4ED8">01001100 </tspan><tspan fill="#10B981">01101111</tspan>
+    </text>
+  </g>
+  
+  <!-- Subtle tech pattern background -->
+  <g opacity="0.05">
+    <path d="M100,230 L120,230 M140,230 L160,230 M180,230 L200,230" stroke="#1D4ED8" stroke-width="1" stroke-dasharray="2 4"/>
+  </g>
+</svg> 
