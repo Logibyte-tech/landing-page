@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Handshake, Users, Globe, Rocket, ArrowRight, Check } from 'lucide-react'
+import Image from 'next/image'
 
 const benefits = [
   {
@@ -68,6 +69,17 @@ const partnershipTypes: PartnershipType[] = [
   }
 ]
 
+const partnerLogos = [
+  { name: 'Morgan Stanley', src: '/partners/morgan-stanley.svg' },
+  { name: 'National Bank', src: '/partners/national-bank.svg' },
+  { name: 'RBC', src: '/partners/rbc.svg' },
+  { name: 'CIBC', src: '/partners/cibc.svg' },
+  { name: 'TD', src: '/partners/td.svg' },
+  { name: 'Expedia Group', src: '/partners/expedia-group.svg' },
+  { name: 'MongoDB', src: '/partners/mongodb.svg' },
+  { name: 'Ericsson', src: '/partners/ericsson.svg' },
+]
+
 export default function Partnership() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -90,6 +102,26 @@ export default function Partnership() {
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
               Join our network of trusted partners and grow your business together
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Partners (Logo Carousel) Section – inserted on top of others */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-6 text-center">Our Partners</h2>
+          <div className="overflow-hidden w-full">
+            <div className="partner-logo-carousel animate-scroll-logos">
+              {partnerLogos.concat(partnerLogos).map((logo, idx) => (
+                <div key={idx} className="partner-logo-item">
+                  {logo.src === "/partners/expedia-group.svg" || logo.src === "/partners/mongodb.svg" || logo.src === "/partners/ericsson.svg" || logo.src === "/partners/iqware.svg" ? (
+                    <div style={{ background: "#f0f0f0", color: "#333", padding: "0.5rem", borderRadius: "0.25rem", textAlign: "center", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}> {logo.name} </div>
+                  ) : (
+                    <Image src={logo.src} alt={logo.name} width={120} height={60} className="object-contain h-16 w-auto" />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

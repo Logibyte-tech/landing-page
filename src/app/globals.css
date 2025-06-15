@@ -190,4 +190,51 @@
   background-position: center;
   background-size: 320px;
   opacity: 0.04;
+}
+
+/* Logo Carousel Animation */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-logos {
+  animation: scroll-logos 30s linear infinite;
+}
+
+/* Responsive logo carousel item styling */
+.partner-logo-carousel {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
+}
+.partner-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 10rem;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.partner-logo-item:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+@media (max-width: 640px) {
+  .partner-logo-item {
+    width: 6rem;
+    height: 3rem;
+  }
+  .partner-logo-carousel {
+    gap: 1.5rem;
+  }
 } 
