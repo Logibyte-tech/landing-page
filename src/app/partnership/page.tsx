@@ -69,15 +69,16 @@ const partnershipTypes: PartnershipType[] = [
   }
 ]
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const partnerLogos = [
-  { name: 'Morgan Stanley', src: '/partners/morgan-stanley.svg' },
-  { name: 'National Bank', src: '/partners/national-bank.svg' },
-  { name: 'RBC', src: '/partners/rbc.svg' },
-  { name: 'CIBC', src: '/partners/cibc.svg' },
-  { name: 'TD', src: '/partners/td.svg' },
-  { name: 'Expedia Group', src: '/partners/expedia-group.svg' },
-  { name: 'MongoDB', src: '/partners/mongodb.svg' },
-  { name: 'Ericsson', src: '/partners/ericsson.svg' },
+  { name: 'Morgan Stanley', src: `${basePath}/partners/morgan-stanley.svg` },
+  { name: 'National Bank', src: `${basePath}/partners/national-bank.svg` },
+  { name: 'RBC', src: `${basePath}/partners/rbc.svg` },
+  { name: 'CIBC', src: `${basePath}/partners/cibc.svg` },
+  { name: 'TD', src: `${basePath}/partners/td.svg` },
+  { name: 'Expedia Group', src: `${basePath}/partners/expedia-group.svg` },
+  { name: 'MongoDB', src: `${basePath}/partners/mongodb.svg` },
+  { name: 'Ericsson', src: `${basePath}/partners/ericsson.svg` },
 ]
 
 export default function Partnership() {
