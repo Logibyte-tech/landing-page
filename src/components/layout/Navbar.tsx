@@ -37,10 +37,10 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 fixed w-full z-50">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-24 gap-2 md:gap-0">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image src="/images/logo.svg" alt="Logibyte Logo" width={240} height={72} priority className="h-20 w-auto" />
+            <Image src="/images/logo.svg" alt="Logibyte Logo" width={240} height={72} priority className="h-12 w-auto md:h-20" />
           </Link>
 
           {/* Desktop Navigation */}
