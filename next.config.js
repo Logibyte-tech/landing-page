@@ -1,12 +1,21 @@
 /** @type { import("next").NextConfig } */
-const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   output: "export",
-  // (Optional) If you're using images (for example, from unsplash) and you're not using a custom server (or "next start"), you'll also need to set "images" to "unoptimized" (or use "images.remotePatterns" (recommended) if you're using "images.domains" (which is deprecated)):
-  images: { unoptimized: true, /* (or use "remotePatterns" if you're using "domains") */ },
-  // (Optional) If your repo is not at the root (e.g. "username.github.io/repo"), you'll need "basePath" and "assetPrefix" (for example, "basePath": "/YOUR_REPO_NAME" and "assetPrefix": "/YOUR_REPO_NAME/").
-  basePath: isProd ? '/landing-page' : '',
-  assetPrefix: isProd ? '/landing-page/' : '',
+  // For custom domain, we don't need basePath or assetPrefix
+  images: { 
+    unoptimized: true,
+    // Add your custom domain to the allowed image domains if needed
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'logibyte.smartcodee.com',
+      }
+    ]
+  },
 };
 
 module.exports = nextConfig; 
