@@ -3,73 +3,16 @@ import Link from 'next/link'
 import { Handshake, Users, Globe, Rocket, ArrowRight, Check } from 'lucide-react'
 import Image from 'next/image'
 import PartnerLogoCarousel from '../../components/partnership/PartnerLogoCarousel'
+import partnershipData from '@/data/partnership.json'
 
-const benefits = [
-  {
-    name: 'Strategic Collaboration',
-    description: 'Join forces with us to create innovative solutions that drive business growth and technological advancement.',
-    icon: Handshake,
-  },
-  {
-    name: 'Global Network',
-    description: 'Access our extensive network of industry leaders, clients, and technology partners worldwide.',
-    icon: Globe,
-  },
-  {
-    name: 'Expert Team',
-    description: 'Work with our team of experienced professionals who bring deep expertise in various technology domains.',
-    icon: Users,
-  },
-  {
-    name: 'Innovation Hub',
-    description: 'Collaborate on cutting-edge projects and stay ahead of industry trends through our innovation initiatives.',
-    icon: Rocket,
-  },
-]
+const { benefits, partnershipTypes } = partnershipData
 
-interface PartnershipType {
-  title: string
-  description: string
-  features: string[]
-  icon: React.ElementType
+const partnershipIcons: { [key: string]: React.ElementType } = {
+  Handshake,
+  Users,
+  Globe,
+  Rocket,
 }
-
-const partnershipTypes: PartnershipType[] = [
-  {
-    title: 'Technology Partnership',
-    description: 'Integrate our solutions with your technology stack',
-    features: [
-      'API Integration',
-      'Custom Development',
-      'Technical Support',
-      'Joint Marketing'
-    ],
-    icon: Rocket
-  },
-  {
-    title: 'Channel Partnership',
-    description: 'Resell our solutions to your customers',
-    features: [
-      'Revenue Sharing',
-      'Sales Training',
-      'Marketing Support',
-      'Dedicated Support'
-    ],
-    icon: Users
-  },
-  {
-    title: 'Strategic Partnership',
-    description: 'Create joint solutions for specific markets',
-    features: [
-      'Market Analysis',
-      'Solution Development',
-      'Go-to-Market Strategy',
-      'Joint Ventures'
-    ],
-    icon: Handshake
-  }
-]
-
 
 export default function Partnership() {
   return (
@@ -112,37 +55,37 @@ export default function Partnership() {
             Partnership Opportunities
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partnershipTypes.map((type) => (
-              <div
-                key={type.title}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300"
-              >
-                <div className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4">
-                  {React.createElement(type.icon, { className: 'w-12 h-12' })}
+            {partnershipTypes.map((type) => {
+              const Icon = partnershipIcons[type.icon as keyof typeof partnershipIcons]
+              return (
+                <div key={type.title} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                  <div className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4">
+                    {Icon && <Icon className="w-12 h-12" />}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    {type.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {type.description}
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {type.features.map((feature) => (
+                      <li key={feature} className="flex items-center text-gray-600 dark:text-gray-300">
+                        <Check className="h-5 w-5 text-green-500 mr-2" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {type.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {type.description}
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {type.features.map((feature) => (
-                    <li key={feature} className="flex items-center text-gray-600 dark:text-gray-300">
-                      <Check className="h-5 w-5 text-green-500 mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -154,22 +97,22 @@ export default function Partnership() {
             Why Partner With Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.name}
-                className="bg-white dark:bg-gray-700 rounded-lg p-6 text-center"
-              >
-                <div className="w-12 h-12 mx-auto mb-4 text-blue-600 dark:text-blue-400">
-                  {React.createElement(benefit.icon, { className: 'w-12 h-12' })}
+            {benefits.map((benefit) => {
+               const Icon = partnershipIcons[benefit.icon as keyof typeof partnershipIcons]
+               return (
+                <div key={benefit.name} className="bg-white dark:bg-gray-700 rounded-lg p-6 text-center">
+                  <div className="w-12 h-12 mx-auto mb-4 text-blue-600 dark:text-blue-400">
+                    {Icon && <Icon className="w-12 h-12" />}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {benefit.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  {benefit.name}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+              )}
+            )}
           </div>
         </div>
       </section>

@@ -1,0 +1,70 @@
+{
+  "features": [
+    {
+      "name": "Custom Software Development",
+      "description": "Tailored software solutions designed to meet your specific business needs and challenges.",
+      "icon": "Code"
+    },
+    {
+      "name": "Digital Transformation",
+      "description": "Guide your business through digital evolution with our expert consulting services.",
+      "icon": "Globe"
+    },
+    {
+      "name": "Cybersecurity Solutions",
+      "description": "Protect your digital assets with our comprehensive security solutions and best practices.",
+      "icon": "Shield"
+    },
+    {
+      "name": "IT Strategy Consulting",
+      "description": "Strategic IT planning and implementation to drive your business forward.",
+      "icon": "Users"
+    }
+  ],
+  "testimonials": [
+    {
+      "content": "Logibyte transformed our business operations with their innovative solutions. Their team's expertise and dedication are unmatched.",
+      "author": "Sarah Johnson",
+      "role": "CEO, TechCorp",
+      "rating": 5
+    },
+    {
+      "content": "Working with Logibyte has been a game-changer for our company. Their digital transformation services helped us achieve remarkable growth.",
+      "author": "Michael Chen",
+      "role": "CTO, InnovateX",
+      "rating": 5
+    },
+    {
+      "content": "The cybersecurity solutions provided by Logibyte have significantly enhanced our data protection capabilities. Highly recommended!",
+      "author": "Emily Rodriguez",
+      "role": "Security Director, Global Finance",
+      "rating": 5
+    }
+  ],
+  "showcaseItems": [
+    {
+      "title": "Digital Transformation",
+      "description": "Revolutionize your business with cutting-edge digital solutions",
+      "image": "bg-gradient-to-br from-purple-500 via-pink-500 to-red-500",
+      "icon": "🚀"
+    },
+    {
+      "title": "Cloud Solutions",
+      "description": "Scale your operations with secure and efficient cloud infrastructure",
+      "image": "bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500",
+      "icon": "☁️"
+    },
+    {
+      "title": "AI & Machine Learning",
+      "description": "Harness the power of AI to drive innovation and growth",
+      "image": "bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500",
+      "icon": "🤖"
+    },
+    {
+      "title": "Cybersecurity",
+      "description": "Protect your digital assets with advanced security solutions",
+      "image": "bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500",
+      "icon": "🔒"
+    }
+  ]
+} 

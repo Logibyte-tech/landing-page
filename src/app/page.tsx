@@ -8,78 +8,16 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import homeData from '@/data/home.json'
 
-const features = [
-  {
-    name: 'Custom Software Development',
-    description: 'Tailored software solutions designed to meet your specific business needs and challenges.',
-    icon: Code,
-  },
-  {
-    name: 'Digital Transformation',
-    description: 'Guide your business through digital evolution with our expert consulting services.',
-    icon: Globe,
-  },
-  {
-    name: 'Cybersecurity Solutions',
-    description: 'Protect your digital assets with our comprehensive security solutions and best practices.',
-    icon: Shield,
-  },
-  {
-    name: 'IT Strategy Consulting',
-    description: 'Strategic IT planning and implementation to drive your business forward.',
-    icon: Users,
-  },
-]
+const { features, testimonials, showcaseItems } = homeData
 
-const testimonials = [
-  {
-    content: "Logibyte transformed our business operations with their innovative solutions. Their team's expertise and dedication are unmatched.",
-    author: "Sarah Johnson",
-    role: "CEO, TechCorp",
-    rating: 5,
-  },
-  {
-    content: "Working with Logibyte has been a game-changer for our company. Their digital transformation services helped us achieve remarkable growth.",
-    author: "Michael Chen",
-    role: "CTO, InnovateX",
-    rating: 5,
-  },
-  {
-    content: "The cybersecurity solutions provided by Logibyte have significantly enhanced our data protection capabilities. Highly recommended!",
-    author: "Emily Rodriguez",
-    role: "Security Director, Global Finance",
-    rating: 5,
-  },
-]
-
-// Add showcase items for the slider
-const showcaseItems = [
-  {
-    title: "Digital Transformation",
-    description: "Revolutionize your business with cutting-edge digital solutions",
-    image: "bg-gradient-to-br from-purple-500 via-pink-500 to-red-500",
-    icon: "🚀"
-  },
-  {
-    title: "Cloud Solutions",
-    description: "Scale your operations with secure and efficient cloud infrastructure",
-    image: "bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500",
-    icon: "☁️"
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "Harness the power of AI to drive innovation and growth",
-    image: "bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500",
-    icon: "🤖"
-  },
-  {
-    title: "Cybersecurity",
-    description: "Protect your digital assets with advanced security solutions",
-    image: "bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500",
-    icon: "🔒"
-  }
-]
+const featureIcons: { [key: string]: React.ElementType } = {
+  Code,
+  Globe,
+  Shield,
+  Users,
+}
 
 export default function Home() {
   return (
@@ -174,22 +112,25 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-              {features.map((feature) => (
-                <div key={feature.name} className="flex flex-col">
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                    <feature.icon className="h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
-                    {feature.name}
-                  </dt>
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                    <p className="flex-auto">{feature.description}</p>
-                    <p className="mt-6">
-                      <Link href="/contact" className="text-sm font-semibold leading-6 text-blue-600">
-                        Learn more <span aria-hidden="true">→</span>
-                      </Link>
-                    </p>
-                  </dd>
-                </div>
-              ))}
+              {features.map((feature) => {
+                const Icon = featureIcons[feature.icon]
+                return (
+                  <div key={feature.name} className="flex flex-col">
+                    <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                      {Icon && <Icon className="h-5 w-5 flex-none text-blue-600" aria-hidden="true" />}
+                      {feature.name}
+                    </dt>
+                    <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                      <p className="flex-auto">{feature.description}</p>
+                      <p className="mt-6">
+                        <Link href="/contact" className="text-sm font-semibold leading-6 text-blue-600">
+                          Learn more <span aria-hidden="true">→</span>
+                        </Link>
+                      </p>
+                    </dd>
+                  </div>
+                )
+              })}
             </dl>
           </div>
         </div>

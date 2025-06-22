@@ -1,9 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
+
+type Status = 'idle' | 'sending' | 'success' | 'error'
 
 export default function Contact() {
+  const [status, setStatus] = useState<Status>('idle')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,17 +17,31 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically handle the form submission
-    // For now, we'll just log the data
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: '',
-    })
+    setStatus('sending')
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message.')
+      }
+
+      setStatus('success')
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: '',
+      })
+    } catch (error) {
+      console.error(error)
+      setStatus('error')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -59,78 +76,20 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-        <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
-          <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 dark:bg-gray-800 ring-1 ring-gray-900/10 dark:ring-white/10 lg:w-1/2">
-              <svg
-                className="absolute inset-0 h-full w-full stroke-gray-200 dark:stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-                aria-hidden="true"
-              >
-                <defs>
-                  <pattern
-                    id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
-                    width={200}
-                    height={200}
-                    x="100%"
-                    y={-1}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path d="M130 200V.5M.5 .5H200" fill="none" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" strokeWidth={0} fill="white" className="dark:fill-gray-800" />
-                <svg x="100%" y={-1} className="overflow-visible fill-gray-50 dark:fill-gray-700">
-                  <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
-                </svg>
-                <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
-              </svg>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Get in touch</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              We'd love to hear from you. Please fill out this form or shoot us an email.
+
+      {/* New Centered Layout */}
+      <div className="py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-xl lg:max-w-2xl px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Get In Touch</h2>
+            <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
+              We're here to help and answer any question you might have. We look forward to hearing from you.
             </p>
-            <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
-              <div className="flex gap-x-4">
-                <dt className="flex-none">
-                  <span className="sr-only">Address</span>
-                  <MapPin className="h-7 w-6 text-gray-400" aria-hidden="true" />
-                </dt>
-                <dd>
-                  123 Business Street
-                  <br />
-                  Suite 100
-                  <br />
-                  San Francisco, CA 94107
-                </dd>
-              </div>
-              <div className="flex gap-x-4">
-                <dt className="flex-none">
-                  <span className="sr-only">Telephone</span>
-                  <Phone className="h-7 w-6 text-gray-400" aria-hidden="true" />
-                </dt>
-                <dd>
-                  <a className="hover:text-gray-900" href="tel:+1 (555) 234-5678">
-                    +1 (555) 234-5678
-                  </a>
-                </dd>
-              </div>
-              <div className="flex gap-x-4">
-                <dt className="flex-none">
-                  <span className="sr-only">Email</span>
-                  <Mail className="h-7 w-6 text-gray-400" aria-hidden="true" />
-                </dt>
-                <dd>
-                  <a className="hover:text-gray-900" href="mailto:hello@logibyte.com">
-                    hello@logibyte.com
-                  </a>
-                </dd>
-              </div>
-            </dl>
           </div>
-        </div>
-        <form onSubmit={handleSubmit} className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-          <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-white">
@@ -208,16 +167,38 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-end">
+            <div className="mt-10">
               <button
                 type="submit"
-                className="rounded-md bg-blue-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-blue-500 dark:hover:bg-blue-400"
+                disabled={status === 'sending'}
+                className="block w-full rounded-md bg-blue-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-blue-500 dark:hover:bg-blue-400 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send message
+                {status === 'sending' ? 'Sending...' : 'Send message'}
               </button>
             </div>
+            {status === 'success' && (
+              <p className="mt-4 text-center text-green-600">Message sent successfully! We'll be in touch soon.</p>
+            )}
+            {status === 'error' && (
+              <p className="mt-4 text-center text-red-600">Something went wrong. Please try again later.</p>
+            )}
+          </form>
+
+          {/* Direct Contact Details */}
+          <div className="mt-16 border-t border-gray-200 dark:border-gray-800 pt-10 text-center">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Or reach us directly at</h3>
+            <dl className="mt-6 flex flex-col sm:flex-row sm:justify-center gap-x-10 gap-y-6 text-base leading-7 text-gray-600 dark:text-gray-400">
+              <div className="flex justify-center gap-x-3">
+                <Phone className="h-6 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                <a href="tel:+1 (555) 234-5678">+1 (647) 366-6276</a>
+              </div>
+              <div className="flex justify-center gap-x-3">
+                <Mail className="h-6 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                <a href="mailto:contact@logibyte.ca">contact@logibyte.ca</a>
+              </div>
+            </dl>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   )

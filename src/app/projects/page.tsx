@@ -2,51 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-
-const projects = [
-  {
-    id: 1,
-    title: 'Enterprise Digital Transformation',
-    description: 'Led a comprehensive digital transformation initiative for a Fortune 500 company, resulting in 40% operational efficiency improvement.',
-    category: 'Digital Transformation',
-    imageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  },
-  {
-    id: 2,
-    title: 'Cloud Migration Strategy',
-    description: 'Developed and executed a cloud migration strategy for a financial services firm, reducing infrastructure costs by 35%.',
-    category: 'Cloud Solutions',
-    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80',
-  },
-  {
-    id: 3,
-    title: 'Cybersecurity Implementation',
-    description: 'Implemented enterprise-wide cybersecurity solutions for a healthcare provider, achieving 99.9% security compliance.',
-    category: 'Security',
-    imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  },
-  {
-    id: 4,
-    title: 'Custom Software Development',
-    description: 'Developed a custom enterprise resource planning system for a manufacturing company, streamlining operations across 10 locations.',
-    category: 'Software Development',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1415&q=80',
-  },
-  {
-    id: 5,
-    title: 'Data Analytics Platform',
-    description: 'Built a real-time data analytics platform for a retail chain, enabling data-driven decision making across 200+ stores.',
-    category: 'Data Analytics',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  },
-  {
-    id: 6,
-    title: 'IoT Implementation',
-    description: 'Implemented IoT solutions for a smart manufacturing facility, reducing operational costs by 25%.',
-    category: 'IoT',
-    imageUrl: 'https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  },
-]
+import { projects } from '@/data/projects.json'
 
 export default function Projects() {
   return (
@@ -102,16 +58,17 @@ export default function Projects() {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    {project.description}
-                  </p>
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                  >
-                    View Case Study
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  <p className="mt-4 text-gray-600 dark:text-gray-300 flex-grow">{project.description}</p>
+                  
+                  {project.caseStudyId && (
+                    <Link 
+                      href={`/case-studies/${project.caseStudyId}`}
+                      className="mt-6 inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold group"
+                    >
+                      View Case Study
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}

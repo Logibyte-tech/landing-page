@@ -1,36 +1,16 @@
 import React from 'react'
 import { Building2, Users, Target, Award } from 'lucide-react'
 import Link from 'next/link'
+import aboutData from '@/data/about.json'
 
-const stats = [
-  { id: 1, name: 'Years of Experience', value: '10+' },
-  { id: 2, name: 'Projects Completed', value: '200+' },
-  { id: 3, name: 'Team Members', value: '50+' },
-  { id: 4, name: 'Client Satisfaction', value: '98%' },
-]
+const { stats, values, team } = aboutData
 
-const values = [
-  {
-    name: 'Innovation',
-    description: 'We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.',
-    icon: Target,
-  },
-  {
-    name: 'Excellence',
-    description: 'We strive for excellence in everything we do, from code quality to client service.',
-    icon: Award,
-  },
-  {
-    name: 'Collaboration',
-    description: 'We believe in the power of teamwork and close collaboration with our clients.',
-    icon: Users,
-  },
-  {
-    name: 'Integrity',
-    description: 'We maintain the highest standards of professional ethics and transparency.',
-    icon: Building2,
-  },
-]
+const valueIcons: { [key: string]: React.ElementType } = {
+  Building2,
+  Users,
+  Target,
+  Award,
+}
 
 export default function About() {
   return (
@@ -94,17 +74,20 @@ export default function About() {
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-            {values.map((value) => (
-              <div key={value.name} className="flex flex-col">
-                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                  <value.icon className="h-5 w-5 flex-none text-blue-600 dark:text-blue-400" aria-hidden="true" />
-                  {value.name}
-                </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
-                  <p className="flex-auto">{value.description}</p>
-                </dd>
-              </div>
-            ))}
+            {values.map((value) => {
+              const Icon = valueIcons[value.icon as keyof typeof valueIcons]
+              return (
+                <div key={value.name} className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
+                    {Icon && <Icon className="h-5 w-5 flex-none text-blue-600 dark:text-blue-400" aria-hidden="true" />}
+                    {value.name}
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                    <p className="flex-auto">{value.description}</p>
+                  </dd>
+                </div>
+              )
+            })}
           </dl>
         </div>
       </div>
@@ -121,43 +104,13 @@ export default function About() {
           role="list"
           className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
         >
-          {/* Add team members here */}
-          <li>
-            <img
-              className="aspect-[14/13] w-full rounded-2xl object-cover"
-              src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-              alt=""
-            />
-            <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900 dark:text-white">John Doe</h3>
-            <p className="text-base leading-7 text-gray-600 dark:text-gray-300">Chief Executive Officer</p>
-          </li>
-          <li>
-            <img
-              className="aspect-[14/13] w-full rounded-2xl object-cover"
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-              alt=""
-            />
-            <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900 dark:text-white">Jane Smith</h3>
-            <p className="text-base leading-7 text-gray-600 dark:text-gray-300">Chief Technology Officer</p>
-          </li>
-          <li>
-            <img
-              className="aspect-[14/13] w-full rounded-2xl object-cover"
-              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-              alt=""
-            />
-            <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900 dark:text-white">Michael Johnson</h3>
-            <p className="text-base leading-7 text-gray-600 dark:text-gray-300">Head of Operations</p>
-          </li>
-          <li>
-            <img
-              className="aspect-[14/13] w-full rounded-2xl object-cover"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-              alt=""
-            />
-            <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900 dark:text-white">Sarah Williams</h3>
-            <p className="text-base leading-7 text-gray-600 dark:text-gray-300">Head of Client Success</p>
-          </li>
+          {team.map((person) => (
+            <li key={person.name}>
+              <img className="aspect-[14/13] w-full rounded-2xl object-cover" src={person.imageUrl} alt={person.name} />
+              <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900 dark:text-white">{person.name}</h3>
+              <p className="text-base leading-7 text-gray-600 dark:text-gray-300">{person.role}</p>
+            </li>
+          ))}
         </ul>
       </div>
 

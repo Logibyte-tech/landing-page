@@ -1,61 +1,16 @@
 import React from 'react'
 import { Code2, Cloud, Shield, Database, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import servicesData from '@/data/services.json'
 
-const services = [
-  {
-    id: 'custom-software',
-    title: 'Custom Software Development',
-    description: 'Tailored software solutions designed to meet your specific business needs. From web applications to enterprise software, we build scalable and maintainable solutions.',
-    icon: Code2,
-    features: [
-      'Web Application Development',
-      'Enterprise Software Solutions',
-      'API Development & Integration',
-      'Legacy System Modernization',
-      'Quality Assurance & Testing',
-    ],
-  },
-  {
-    id: 'cloud-solutions',
-    title: 'Cloud Solutions',
-    description: 'Harness the power of cloud computing with our comprehensive cloud services. We help businesses migrate, optimize, and manage their cloud infrastructure.',
-    icon: Cloud,
-    features: [
-      'Cloud Migration & Strategy',
-      'AWS/Azure/GCP Solutions',
-      'Cloud Infrastructure Management',
-      'Serverless Architecture',
-      'Cloud Security & Compliance',
-    ],
-  },
-  {
-    id: 'cybersecurity',
-    title: 'Cybersecurity',
-    description: 'Protect your digital assets with our comprehensive cybersecurity solutions. We implement robust security measures to safeguard your business from threats.',
-    icon: Shield,
-    features: [
-      'Security Assessment & Audit',
-      'Threat Detection & Prevention',
-      'Compliance & Risk Management',
-      'Security Architecture Design',
-      'Incident Response Planning',
-    ],
-  },
-  {
-    id: 'data-solutions',
-    title: 'Data Solutions',
-    description: 'Transform your data into actionable insights with our data solutions. We help businesses collect, process, and analyze data to drive informed decisions.',
-    icon: Database,
-    features: [
-      'Data Analytics & BI',
-      'Big Data Processing',
-      'Data Warehouse Solutions',
-      'Machine Learning & AI',
-      'Data Visualization',
-    ],
-  },
-]
+const { services } = servicesData
+
+const serviceIcons: { [key: string]: React.ElementType } = {
+  Code2,
+  Cloud,
+  Shield,
+  Database,
+}
 
 export default function Services() {
   return (
@@ -99,10 +54,12 @@ export default function Services() {
 
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {services.map((service) => (
+            {services.map((service) => {
+              const Icon = serviceIcons[service.icon as keyof typeof serviceIcons]
+              return (
               <div key={service.id} className="flex flex-col">
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                  <service.icon className="h-5 w-5 flex-none text-blue-600 dark:text-blue-400" aria-hidden="true" />
+                  {Icon && <Icon className="h-5 w-5 flex-none text-blue-600 dark:text-blue-400" aria-hidden="true" />}
                   {service.title}
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
@@ -117,7 +74,7 @@ export default function Services() {
                   </ul>
                 </dd>
               </div>
-            ))}
+            )})}
           </dl>
         </div>
       </div>

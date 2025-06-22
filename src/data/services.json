@@ -1,0 +1,56 @@
+{
+  "services": [
+    {
+      "id": "custom-software",
+      "title": "Custom Software Development",
+      "description": "Tailored software solutions designed to meet your specific business needs. From web applications to enterprise software, we build scalable and maintainable solutions.",
+      "icon": "Code2",
+      "features": [
+        "Web Application Development",
+        "Enterprise Software Solutions",
+        "API Development & Integration",
+        "Legacy System Modernization",
+        "Quality Assurance & Testing"
+      ]
+    },
+    {
+      "id": "cloud-solutions",
+      "title": "Cloud Solutions",
+      "description": "Harness the power of cloud computing with our comprehensive cloud services. We help businesses migrate, optimize, and manage their cloud infrastructure.",
+      "icon": "Cloud",
+      "features": [
+        "Cloud Migration & Strategy",
+        "AWS/Azure/GCP Solutions",
+        "Cloud Infrastructure Management",
+        "Serverless Architecture",
+        "Cloud Security & Compliance"
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity",
+      "description": "Protect your digital assets with our comprehensive cybersecurity solutions. We implement robust security measures to safeguard your business from threats.",
+      "icon": "Shield",
+      "features": [
+        "Security Assessment & Audit",
+        "Threat Detection & Prevention",
+        "Compliance & Risk Management",
+        "Security Architecture Design",
+        "Incident Response Planning"
+      ]
+    },
+    {
+      "id": "data-solutions",
+      "title": "Data Solutions",
+      "description": "Transform your data into actionable insights with our data solutions. We help businesses collect, process, and analyze data to drive informed decisions.",
+      "icon": "Database",
+      "features": [
+        "Data Analytics & BI",
+        "Big Data Processing",
+        "Data Warehouse Solutions",
+        "Machine Learning & AI",
+        "Data Visualization"
+      ]
+    }
+  ]
+} 

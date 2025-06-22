@@ -4,33 +4,14 @@ import React from 'react'
 import Link from 'next/link'
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa'
 import { MapPin, Phone, Mail } from 'lucide-react'
+import navigation from '@/data/navigation.json'
 
-const navigation = {
-  company: [
-    { name: 'About', href: '/about' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Partnership', href: '/partnership' },
-  ],
-  services: [
-    { name: 'Custom Software Development', href: '/services#custom-software' },
-    { name: 'Cloud Solutions', href: '/services#cloud-solutions' },
-    { name: 'Cybersecurity', href: '/services#cybersecurity' },
-    { name: 'Data Solutions', href: '/services#data-solutions' },
-  ],
-  resources: [
-    { name: 'Projects', href: '/projects' },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Privacy Policy', href: '/privacy' },
-  ],
-  social: [
-    { name: 'Facebook', href: '#', icon: FaFacebook },
-    { name: 'X', href: '#', icon: FaTwitter },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/logibyte-tech/', icon: FaLinkedin },
-    { name: 'Instagram', href: '#', icon: FaInstagram },
-    { name: 'GitHub', href: 'https://github.com/Logibyte-tech', icon: FaGithub },
-  ],
+const socialIcons: { [key: string]: React.ElementType } = {
+  Facebook: FaFacebook,
+  X: FaTwitter,
+  LinkedIn: FaLinkedin,
+  Instagram: FaInstagram,
+  GitHub: FaGithub,
 }
 
 export default function Footer() {
@@ -49,12 +30,15 @@ export default function Footer() {
               Transforming businesses through innovative technology solutions.
             </p>
             <div className="flex space-x-6">
-              {navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
-              ))}
+              {navigation.social.map((item) => {
+                const Icon = socialIcons[item.name]
+                return (
+                  <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">
+                    <span className="sr-only">{item.name}</span>
+                    {Icon && <Icon className="h-6 w-6" aria-hidden="true" />}
+                  </a>
+                )
+              })}
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
@@ -102,11 +86,11 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   <li className="flex items-center text-sm leading-6 text-gray-300">
                     <MapPin className="h-5 w-5 mr-2" />
-                    123 Tech Street, San Francisco, CA 94107
+                    100 King St W, 6060, Toronto, Ontario M5X 1E2, CA
                   </li>
                   <li className="flex items-center text-sm leading-6 text-gray-300">
                     <Phone className="h-5 w-5 mr-2" />
-                    +1 (555) 123-4567
+                    +1 (647) 366-6276
                   </li>
                   <li className="flex items-center text-sm leading-6 text-gray-300">
                     <Mail className="h-5 w-5 mr-2" />

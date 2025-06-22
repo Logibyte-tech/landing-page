@@ -1,0 +1,27 @@
+{
+  "company": [
+    { "name": "About", "href": "/about" },
+    { "name": "Careers", "href": "/careers" },
+    { "name": "Blog", "href": "/blog" },
+    { "name": "Partnership", "href": "/partnership" }
+  ],
+  "services": [
+    { "name": "Custom Software Development", "href": "/services#custom-software" },
+    { "name": "Cloud Solutions", "href": "/services#cloud-solutions" },
+    { "name": "Cybersecurity", "href": "/services#cybersecurity" },
+    { "name": "Data Solutions", "href": "/services#data-solutions" }
+  ],
+  "resources": [
+    { "name": "Projects", "href": "/projects" },
+    { "name": "Case Studies", "href": "/case-studies" },
+    { "name": "Contact", "href": "/contact" },
+    { "name": "Privacy Policy", "href": "/privacy" }
+  ],
+  "social": [
+    { "name": "Facebook", "href": "#" },
+    { "name": "X", "href": "#" },
+    { "name": "LinkedIn", "href": "https://www.linkedin.com/company/logibyte-tech/" },
+    { "name": "Instagram", "href": "#" },
+    { "name": "GitHub", "href": "https://github.com/Logibyte-tech" }
+  ]
+} 

@@ -3,63 +3,7 @@ import { Building2, Users, ArrowUpRight, ChartBar, Clock, Globe } from 'lucide-r
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-
-const caseStudies = [
-  {
-    id: 1,
-    title: 'Digital Transformation for Global Retailer',
-    client: 'RetailCorp International',
-    industry: 'Retail',
-    challenge: 'A leading retail chain needed to modernize their legacy systems and implement a cloud-based infrastructure to support their global operations.',
-    solution: 'We designed and implemented a comprehensive digital transformation strategy, including cloud migration, microservices architecture, and modern e-commerce platform.',
-    results: [
-      '40% reduction in operational costs',
-      '60% improvement in system performance',
-      '99.9% uptime achieved',
-      'Seamless integration across 50+ locations',
-    ],
-    duration: '18 months',
-    teamSize: '25+ experts',
-    technologies: ['AWS', 'Kubernetes', 'React', 'Node.js', 'MongoDB'],
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-  },
-  {
-    id: 2,
-    title: 'Cybersecurity Overhaul for Financial Institution',
-    client: 'SecureBank',
-    industry: 'Finance',
-    challenge: 'A regional bank needed to enhance their security posture and comply with new regulatory requirements while maintaining system availability.',
-    solution: 'Implemented a comprehensive security framework including zero-trust architecture, advanced threat detection, and automated compliance monitoring.',
-    results: [
-      '100% compliance with new regulations',
-      '75% reduction in security incidents',
-      'Real-time threat detection implemented',
-      'Automated compliance reporting',
-    ],
-    duration: '12 months',
-    teamSize: '15+ experts',
-    technologies: ['Azure', 'SIEM', 'Zero Trust', 'AI/ML', 'Automation'],
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-  },
-  {
-    id: 3,
-    title: 'Healthcare Data Platform Modernization',
-    client: 'HealthTech Solutions',
-    industry: 'Healthcare',
-    challenge: 'A healthcare technology provider needed to modernize their data platform to handle increasing data volumes and enable advanced analytics.',
-    solution: 'Developed a scalable data platform with real-time analytics capabilities, machine learning integration, and HIPAA-compliant security measures.',
-    results: [
-      '5x increase in data processing speed',
-      '90% reduction in data access time',
-      'Advanced analytics capabilities enabled',
-      'Full HIPAA compliance achieved',
-    ],
-    duration: '15 months',
-    teamSize: '20+ experts',
-    technologies: ['GCP', 'BigQuery', 'TensorFlow', 'Python', 'Kubernetes'],
-    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-  },
-]
+import { caseStudies } from '@/data/caseStudies.json'
 
 export default function CaseStudies() {
   return (

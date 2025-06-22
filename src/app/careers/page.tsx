@@ -2,107 +2,19 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Briefcase, MapPin, Clock, GraduationCap, Users, Building2, Globe, Heart, Sparkles } from 'lucide-react'
+import careersData from '@/data/careers.json'
 
-const openPositions = [
-  {
-    id: 1,
-    title: 'Senior Software Engineer',
-    department: 'Engineering',
-    location: 'Remote',
-    type: 'Full-time',
-    description: 'Join our engineering team to build scalable and innovative solutions using cutting-edge technologies.',
-    requirements: [
-      '5+ years of software development experience',
-      'Strong expertise in JavaScript/TypeScript',
-      'Experience with React and Node.js',
-      'Knowledge of cloud platforms (AWS/Azure/GCP)',
-      'Excellent problem-solving skills',
-    ],
-  },
-  {
-    id: 2,
-    title: 'DevOps Engineer',
-    department: 'Engineering',
-    location: 'Hybrid',
-    type: 'Full-time',
-    description: 'Help us build and maintain our cloud infrastructure and CI/CD pipelines.',
-    requirements: [
-      '3+ years of DevOps experience',
-      'Experience with containerization and orchestration',
-      'Knowledge of infrastructure as code',
-      'CI/CD pipeline implementation',
-      'Cloud platform expertise',
-    ],
-  },
-  {
-    id: 3,
-    title: 'Solutions Architect',
-    department: 'Professional Services',
-    location: 'Remote',
-    type: 'Full-time',
-    description: 'Design and implement enterprise solutions for our clients.',
-    requirements: [
-      '7+ years of IT consulting experience',
-      'Strong architecture design skills',
-      'Experience with enterprise systems',
-      'Excellent communication skills',
-      'Cloud architecture expertise',
-    ],
-  },
-  {
-    id: 4,
-    title: 'Cybersecurity Analyst',
-    department: 'Security',
-    location: 'Hybrid',
-    type: 'Full-time',
-    description: 'Protect our clients\' digital assets and ensure security compliance.',
-    requirements: [
-      '4+ years of security experience',
-      'Security certifications (CISSP, CEH, etc.)',
-      'Experience with security tools and frameworks',
-      'Knowledge of compliance standards',
-      'Incident response experience',
-    ],
-  },
-]
+const { openPositions, benefits } = careersData
 
-const benefits = [
-  {
-    name: 'Competitive Compensation',
-    description: 'We offer competitive salaries and comprehensive benefits packages.',
-    icon: Briefcase,
-  },
-  {
-    name: 'Flexible Work Arrangements',
-    description: 'Work remotely or in our modern offices with flexible hours.',
-    icon: Clock,
-  },
-  {
-    name: 'Professional Development',
-    description: 'Continuous learning opportunities and career growth paths.',
-    icon: GraduationCap,
-  },
-  {
-    name: 'Collaborative Culture',
-    description: 'Work with talented professionals in a supportive environment.',
-    icon: Users,
-  },
-  {
-    name: 'Health & Wellness',
-    description: 'Comprehensive health coverage and wellness programs.',
-    icon: Heart,
-  },
-  {
-    name: 'Global Opportunities',
-    description: 'Work with international clients and teams.',
-    icon: Globe,
-  },
-  {
-    name: 'Innovation Focus',
-    description: 'Work with cutting-edge technologies and innovative solutions.',
-    icon: Sparkles,
-  },
-]
+const benefitIcons: { [key: string]: React.ElementType } = {
+  Briefcase,
+  Clock,
+  GraduationCap,
+  Users,
+  Globe,
+  Heart,
+  Sparkles,
+}
 
 export default function Careers() {
   return (
@@ -186,22 +98,20 @@ export default function Careers() {
             Why Join Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.name}
-                className="bg-white dark:bg-gray-700 rounded-lg p-6 text-center"
-              >
-                <div className="w-12 h-12 mx-auto mb-4 text-blue-600 dark:text-blue-400">
-                  {React.createElement(benefit.icon, { className: 'w-12 h-12' })}
+            {benefits.map((benefit) => {
+              const Icon = benefitIcons[benefit.icon as keyof typeof benefitIcons]
+              return (
+                <div key={benefit.name} className="bg-white dark:bg-gray-700 rounded-lg p-6 text-center">
+                  <div className="w-12 h-12 mx-auto mb-4 text-blue-600 dark:text-blue-400">
+                    {Icon && <Icon className="w-12 h-12" />}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {benefit.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  {benefit.name}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

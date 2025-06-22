@@ -1,0 +1,73 @@
+{
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "The Future of Cloud Computing in 2024",
+      "description": "Explore the latest trends and innovations shaping the cloud computing landscape, from edge computing to serverless architectures.",
+      "category": "Cloud Technology",
+      "author": "Sarah Chen",
+      "date": "March 15, 2024",
+      "readTime": "8 min read",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Cybersecurity Best Practices for Remote Work",
+      "description": "Essential security measures and best practices to protect your organization in the era of remote and hybrid work environments.",
+      "category": "Cybersecurity",
+      "author": "Michael Rodriguez",
+      "date": "March 10, 2024",
+      "readTime": "6 min read",
+      "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Digital Transformation: A Roadmap for Success",
+      "description": "Learn how to navigate the complex journey of digital transformation and drive meaningful change in your organization.",
+      "category": "Digital Transformation",
+      "author": "Emily Thompson",
+      "date": "March 5, 2024",
+      "readTime": "10 min read",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 4,
+      "title": "The Rise of AI in Enterprise Software",
+      "description": "Discover how artificial intelligence is revolutionizing enterprise software and creating new opportunities for business innovation.",
+      "category": "Artificial Intelligence",
+      "author": "David Kim",
+      "date": "February 28, 2024",
+      "readTime": "7 min read",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 5,
+      "title": "DevOps: Breaking Down Silos for Better Delivery",
+      "description": "How implementing DevOps practices can improve collaboration, accelerate delivery, and enhance software quality.",
+      "category": "DevOps",
+      "author": "Lisa Wang",
+      "date": "February 20, 2024",
+      "readTime": "9 min read",
+      "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Data-Driven Decision Making in Modern Business",
+      "description": "Explore how businesses are leveraging data analytics to make informed decisions and gain competitive advantages.",
+      "category": "Data Analytics",
+      "author": "James Wilson",
+      "date": "February 15, 2024",
+      "readTime": "8 min read",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    }
+  ],
+  "categories": [
+    "All Posts",
+    "Cloud Technology",
+    "Cybersecurity",
+    "Digital Transformation",
+    "Artificial Intelligence",
+    "DevOps",
+    "Data Analytics"
+  ]
+} 

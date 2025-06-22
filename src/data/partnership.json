@@ -1,0 +1,59 @@
+{
+  "benefits": [
+    {
+      "name": "Strategic Collaboration",
+      "description": "Join forces with us to create innovative solutions that drive business growth and technological advancement.",
+      "icon": "Handshake"
+    },
+    {
+      "name": "Global Network",
+      "description": "Access our extensive network of industry leaders, clients, and technology partners worldwide.",
+      "icon": "Globe"
+    },
+    {
+      "name": "Expert Team",
+      "description": "Work with our team of experienced professionals who bring deep expertise in various technology domains.",
+      "icon": "Users"
+    },
+    {
+      "name": "Innovation Hub",
+      "description": "Collaborate on cutting-edge projects and stay ahead of industry trends through our innovation initiatives.",
+      "icon": "Rocket"
+    }
+  ],
+  "partnershipTypes": [
+    {
+      "title": "Technology Partnership",
+      "description": "Integrate our solutions with your technology stack",
+      "features": [
+        "API Integration",
+        "Custom Development",
+        "Technical Support",
+        "Joint Marketing"
+      ],
+      "icon": "Rocket"
+    },
+    {
+      "title": "Channel Partnership",
+      "description": "Resell our solutions to your customers",
+      "features": [
+        "Revenue Sharing",
+        "Sales Training",
+        "Marketing Support",
+        "Dedicated Support"
+      ],
+      "icon": "Users"
+    },
+    {
+      "title": "Strategic Partnership",
+      "description": "Create joint solutions for specific markets",
+      "features": [
+        "Market Analysis",
+        "Solution Development",
+        "Go-to-Market Strategy",
+        "Joint Ventures"
+      ],
+      "icon": "Handshake"
+    }
+  ]
+} 
