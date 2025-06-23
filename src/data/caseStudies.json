@@ -1,40 +1,40 @@
 {
   "caseStudies": [
     {
-      "id": 1,
-      "title": "Digital Transformation for Global Retailer",
-      "client": "RetailCorp International",
-      "industry": "Retail",
-      "challenge": "A leading retail chain needed to modernize their legacy systems and implement a cloud-based infrastructure to support their global operations.",
-      "solution": "We designed and implemented a comprehensive digital transformation strategy, including cloud migration, microservices architecture, and modern e-commerce platform.",
+      "id": 5,
+      "title": "Circle Stablecoin Protocol Research and Proof of Concept",
+      "client": "Circle",
+      "industry": "Financial Technology (Fintech)",
+      "challenge": "Circle aimed to explore next-generation stablecoin protocols to enhance transaction throughput and ensure adherence to evolving global financial regulations. They needed a comprehensive research report and a functional proof-of-concept to validate the feasibility of a new architecture.",
+      "solution": "Our team performed a multi-faceted analysis of existing blockchain technologies and designed a novel hybrid architecture. We delivered a detailed research paper outlining the market landscape and our proposed solution, followed by a successful PoC demonstrating high-speed, secure transactions.",
       "results": [
-        "40% reduction in operational costs",
-        "60% improvement in system performance",
-        "99.9% uptime achieved",
-        "Seamless integration across 50+ locations"
+        "Delivered a 150-page research report on stablecoin technology trends.",
+        "PoC processed over 1,000 transactions per second in a test environment.",
+        "Achieved 100% compliance with simulated regulatory stress tests.",
+        "Provided actionable recommendations for Circle's future development roadmap."
       ],
-      "duration": "18 months",
-      "teamSize": "25+ experts",
-      "technologies": ["AWS", "Kubernetes", "React", "Node.js", "MongoDB"],
-      "imageUrl": "/images/casestudy/1.jpg"
+      "duration": "4 months",
+      "teamSize": "8 experts",
+      "technologies": ["Blockchain", "Solidity", "USDC", "Cryptography", "React"],
+      "imageUrl": "/images/casestudy/5.jpg"
     },
     {
-      "id": 2,
-      "title": "Cybersecurity Overhaul for Financial Institution",
-      "client": "SecureBank",
-      "industry": "Finance",
-      "challenge": "A regional bank needed to enhance their security posture and comply with new regulatory requirements while maintaining system availability.",
-      "solution": "Implemented a comprehensive security framework including zero-trust architecture, advanced threat detection, and automated compliance monitoring.",
+      "id": 4,
+      "title": "Smart Manufacturing IoT Implementation",
+      "client": "ManufactureTech Industries",
+      "industry": "Manufacturing",
+      "challenge": "A traditional manufacturing facility needed to implement IoT solutions to monitor equipment performance, predict maintenance needs, and optimize production processes in real-time.",
+      "solution": "Designed and deployed a comprehensive IoT ecosystem including sensor networks, edge computing infrastructure, real-time analytics platform, and predictive maintenance algorithms.",
       "results": [
-        "100% compliance with new regulations",
-        "75% reduction in security incidents",
-        "Real-time threat detection implemented",
-        "Automated compliance reporting"
+        "25% reduction in operational costs",
+        "40% improvement in equipment uptime",
+        "Real-time production monitoring achieved",
+        "Predictive maintenance preventing 90% of unplanned downtime"
       ],
-      "duration": "12 months",
-      "teamSize": "15+ experts",
-      "technologies": ["Azure", "SIEM", "Zero Trust", "AI/ML", "Automation"],
-      "imageUrl": "/images/casestudy/2.jpg"
+      "duration": "14 months",
+      "teamSize": "18+ experts",
+      "technologies": ["IoT Sensors", "Edge Computing", "Azure IoT Hub", "Power BI", "Machine Learning"],
+      "imageUrl": "/images/casestudy/4.jpg"
     },
     {
       "id": 3,
@@ -55,22 +55,40 @@
       "imageUrl": "/images/casestudy/3.jpg"
     },
     {
-      "id": 4,
-      "title": "Smart Manufacturing IoT Implementation",
-      "client": "ManufactureTech Industries",
-      "industry": "Manufacturing",
-      "challenge": "A traditional manufacturing facility needed to implement IoT solutions to monitor equipment performance, predict maintenance needs, and optimize production processes in real-time.",
-      "solution": "Designed and deployed a comprehensive IoT ecosystem including sensor networks, edge computing infrastructure, real-time analytics platform, and predictive maintenance algorithms.",
+      "id": 2,
+      "title": "Cybersecurity Overhaul for Financial Institution",
+      "client": "SecureBank",
+      "industry": "Finance",
+      "challenge": "A regional bank needed to enhance their security posture and comply with new regulatory requirements while maintaining system availability.",
+      "solution": "Implemented a comprehensive security framework including zero-trust architecture, advanced threat detection, and automated compliance monitoring.",
       "results": [
-        "25% reduction in operational costs",
-        "40% improvement in equipment uptime",
-        "Real-time production monitoring achieved",
-        "Predictive maintenance preventing 90% of unplanned downtime"
+        "100% compliance with new regulations",
+        "75% reduction in security incidents",
+        "Real-time threat detection implemented",
+        "Automated compliance reporting"
       ],
-      "duration": "14 months",
-      "teamSize": "18+ experts",
-      "technologies": ["IoT Sensors", "Edge Computing", "Azure IoT Hub", "Power BI", "Machine Learning"],
-      "imageUrl": "/images/casestudy/4.jpg"
+      "duration": "12 months",
+      "teamSize": "15+ experts",
+      "technologies": ["Azure", "SIEM", "Zero Trust", "AI/ML", "Automation"],
+      "imageUrl": "/images/casestudy/2.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Digital Transformation for Global Retailer",
+      "client": "RetailCorp International",
+      "industry": "Retail",
+      "challenge": "A leading retail chain needed to modernize their legacy systems and implement a cloud-based infrastructure to support their global operations.",
+      "solution": "We designed and implemented a comprehensive digital transformation strategy, including cloud migration, microservices architecture, and modern e-commerce platform.",
+      "results": [
+        "40% reduction in operational costs",
+        "60% improvement in system performance",
+        "99.9% uptime achieved",
+        "Seamless integration across 50+ locations"
+      ],
+      "duration": "18 months",
+      "teamSize": "25+ experts",
+      "technologies": ["AWS", "Kubernetes", "React", "Node.js", "MongoDB"],
+      "imageUrl": "/images/casestudy/1.jpg"
     }
   ]
 } 

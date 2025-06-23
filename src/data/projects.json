@@ -1,32 +1,20 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "Enterprise Digital Transformation",
-      "description": "Led a comprehensive digital transformation initiative for a Fortune 500 company, resulting in 40% operational efficiency improvement.",
-      "category": "Digital Transformation",
-      "imageUrl": "/images/projects/1.jpg"
+      "id": 7,
+      "title": "Stablecoin Research & PoC for Circle",
+      "description": "Conducted in-depth research and developed a proof-of-concept for a new stablecoin protocol for Circle, focusing on scalability and regulatory compliance.",
+      "category": "Fintech",
+      "imageUrl": "/images/projects/6.jpg",
+      "caseStudyId": 5
     },
     {
-      "id": 2,
-      "title": "Cloud Migration Strategy",
-      "description": "Developed and executed a cloud migration strategy for a financial services firm, reducing infrastructure costs by 35%.",
-      "category": "Cloud Solutions",
-      "imageUrl": "/images/projects/2.jpg"
-    },
-    {
-      "id": 3,
-      "title": "Cybersecurity Implementation",
-      "description": "Implemented enterprise-wide cybersecurity solutions for a healthcare provider, achieving 99.9% security compliance.",
-      "category": "Security",
-      "imageUrl": "/images/projects/3.jpg"
-    },
-    {
-      "id": 4,
-      "title": "Custom Software Development",
-      "description": "Developed a custom enterprise resource planning system for a manufacturing company, streamlining operations across 10 locations.",
-      "category": "Software Development",
-      "imageUrl": "/images/projects/4.jpg"
+      "id": 6,
+      "title": "IoT Implementation",
+      "description": "Implemented IoT solutions for a smart manufacturing facility, reducing operational costs by 25%.",
+      "category": "IoT",
+      "imageUrl": "/images/casestudy/4.jpg",
+      "caseStudyId": 4
     },
     {
       "id": 5,
@@ -36,12 +24,32 @@
       "imageUrl": "/images/projects/5.jpg"
     },
     {
-      "id": 6,
-      "title": "IoT Implementation",
-      "description": "Implemented IoT solutions for a smart manufacturing facility, reducing operational costs by 25%.",
-      "category": "IoT",
-      "imageUrl": "/images/casestudy/4.jpg",
-      "caseStudyId": 4
+      "id": 4,
+      "title": "Custom Software Development",
+      "description": "Developed a custom enterprise resource planning system for a manufacturing company, streamlining operations across 10 locations.",
+      "category": "Software Development",
+      "imageUrl": "/images/projects/4.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Cybersecurity Implementation",
+      "description": "Implemented enterprise-wide cybersecurity solutions for a healthcare provider, achieving 99.9% security compliance.",
+      "category": "Security",
+      "imageUrl": "/images/projects/3.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Cloud Migration Strategy",
+      "description": "Developed and executed a cloud migration strategy for a financial services firm, reducing infrastructure costs by 35%.",
+      "category": "Cloud Solutions",
+      "imageUrl": "/images/projects/2.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Enterprise Digital Transformation",
+      "description": "Led a comprehensive digital transformation initiative for a Fortune 500 company, resulting in 40% operational efficiency improvement.",
+      "category": "Digital Transformation",
+      "imageUrl": "/images/projects/1.jpg"
     }
   ]
 } 
