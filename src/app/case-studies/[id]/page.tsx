@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, Users, CheckCircle, ArrowUpRight } from 'lucide-re
 import Link from 'next/link'
 import Image from 'next/image'
 import { caseStudies } from '@/data/caseStudies.json'
+import { Metadata, ResolvingMetadata } from 'next'
 
 interface CaseStudyPageProps {
   params: {
@@ -15,6 +16,41 @@ export async function generateStaticParams() {
   return caseStudies.map(study => ({
     id: study.id.toString(),
   }))
+}
+
+export async function generateMetadata(
+  { params }: CaseStudyPageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const id = parseInt(params.id)
+  const caseStudy = caseStudies.find(study => study.id === id)
+
+  if (!caseStudy) {
+    return {
+      title: 'Case Study Not Found',
+      description: 'The requested case study could not be found.',
+    }
+  }
+
+  const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: `${caseStudy.title} - Case Study`,
+    description: caseStudy.challenge,
+    openGraph: {
+      title: `${caseStudy.title} | Logibyte`,
+      description: caseStudy.challenge,
+      images: [
+        {
+          url: `https://www.logibyte.ca${caseStudy.imageUrl}`,
+          width: 1200,
+          height: 630,
+          alt: caseStudy.title,
+        },
+        ...previousImages,
+      ],
+    },
+  }
 }
 
 export default function CaseStudyPage({ params }: CaseStudyPageProps) {
