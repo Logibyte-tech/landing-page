@@ -1,0 +1,70 @@
+{
+  "features": [
+    {
+      "name": "Développement Logiciel Sur Mesure",
+      "description": "Solutions logicielles personnalisées conçues pour répondre à vos besoins et défis spécifiques.",
+      "icon": "Code"
+    },
+    {
+      "name": "Transformation Numérique",
+      "description": "Guidez votre entreprise à travers l'évolution numérique avec nos services de conseil experts.",
+      "icon": "Globe"
+    },
+    {
+      "name": "Solutions de Cybersécurité",
+      "description": "Protégez vos actifs numériques avec nos solutions de sécurité complètes et meilleures pratiques.",
+      "icon": "Shield"
+    },
+    {
+      "name": "Conseil en Stratégie IT",
+      "description": "Planification et mise en œuvre stratégiques IT pour faire avancer votre entreprise.",
+      "icon": "Users"
+    }
+  ],
+  "testimonials": [
+    {
+      "content": "Logibyte a transformé nos opérations commerciales avec leurs solutions innovantes. L'expertise et le dévouement de leur équipe sont inégalés.",
+      "author": "Sarah Johnson",
+      "role": "PDG, TechCorp",
+      "rating": 5
+    },
+    {
+      "content": "Travailler avec Logibyte a été un changement de jeu pour notre entreprise. Leurs services de transformation numérique nous ont aidés à atteindre une croissance remarquable.",
+      "author": "Michael Chen",
+      "role": "CTO, InnovateX",
+      "rating": 5
+    },
+    {
+      "content": "Les solutions de cybersécurité fournies par Logibyte ont considérablement amélioré nos capacités de protection des données. Fortement recommandé !",
+      "author": "Emily Rodriguez",
+      "role": "Directrice Sécurité, Global Finance",
+      "rating": 5
+    }
+  ],
+  "showcaseItems": [
+    {
+      "title": "Transformation Numérique",
+      "description": "Révolutionnez votre entreprise avec des solutions numériques de pointe",
+      "image": "bg-gradient-to-br from-purple-500 via-pink-500 to-red-500",
+      "icon": "🚀"
+    },
+    {
+      "title": "Solutions Cloud",
+      "description": "Développez vos opérations avec une infrastructure cloud sécurisée et efficace",
+      "image": "bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500",
+      "icon": "☁️"
+    },
+    {
+      "title": "IA & Apprentissage Automatique",
+      "description": "Exploitez la puissance de l'IA pour stimuler l'innovation et la croissance",
+      "image": "bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500",
+      "icon": "🤖"
+    },
+    {
+      "title": "Cybersécurité",
+      "description": "Protégez vos actifs numériques avec des solutions de sécurité avancées",
+      "image": "bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500",
+      "icon": "🔒"
+    }
+  ]
+} 

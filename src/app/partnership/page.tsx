@@ -1,11 +1,12 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import { Handshake, Users, Globe, Rocket, ArrowRight, Check } from 'lucide-react'
 import Image from 'next/image'
 import PartnerLogoCarousel from '../../components/partnership/PartnerLogoCarousel'
-import partnershipData from '@/data/partnership.json'
-
-const { benefits, partnershipTypes } = partnershipData
+import { benefits as enBenefits, partnershipTypes as enPartnershipTypes } from '@/data/EN/partnership.json'
+import { benefits as frBenefits, partnershipTypes as frPartnershipTypes } from '@/data/FR/partnership.json'
 
 const partnershipIcons: { [key: string]: React.ElementType } = {
   Handshake,
@@ -15,6 +16,41 @@ const partnershipIcons: { [key: string]: React.ElementType } = {
 }
 
 export default function Partnership() {
+  // Detect language from URL
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const benefits = lang === 'fr' ? frBenefits : enBenefits
+  const partnershipTypes = lang === 'fr' ? frPartnershipTypes : enPartnershipTypes
+
+  const text = {
+    en: {
+      title: 'Partner With Us',
+      subtitle: 'Join our network of trusted partners and grow your business together',
+      ourPartners: 'Our Partners',
+      partnershipOpportunities: 'Partnership Opportunities',
+      learnMore: 'Learn More',
+      whyPartnerWithUs: 'Why Partner With Us?',
+      readyToPartner: 'Ready to Partner With Us?',
+      description: 'Let\'s discuss how we can create a successful partnership together',
+      getStarted: 'Get Started',
+      contactLink: '/contact',
+      backgroundAlt: 'Handshake partnership background',
+    },
+    fr: {
+      title: 'Partenariat avec Nous',
+      subtitle: 'Rejoignez notre réseau de partenaires de confiance et développez votre entreprise ensemble',
+      ourPartners: 'Nos Partenaires',
+      partnershipOpportunities: 'Opportunités de Partenariat',
+      learnMore: 'En Savoir Plus',
+      whyPartnerWithUs: 'Pourquoi Partenariat avec Nous ?',
+      readyToPartner: 'Prêt à Partenariat avec Nous ?',
+      description: 'Discutons de la façon dont nous pouvons créer un partenariat réussi ensemble',
+      getStarted: 'Commencer',
+      contactLink: '/fr/contact',
+      backgroundAlt: 'Arrière-plan de poignée de main de partenariat',
+    },
+  }[lang]
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section with local background image */}
@@ -22,7 +58,7 @@ export default function Partnership() {
         <div className="absolute inset-0">
           <img
             src="/images/hero-partnership.jpg"
-            alt="Handshake partnership background"
+            alt={text.backgroundAlt}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -32,9 +68,9 @@ export default function Partnership() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">Partner With Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">{text.title}</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Join our network of trusted partners and grow your business together
+              {text.subtitle}
             </p>
           </div>
         </div>
@@ -43,7 +79,7 @@ export default function Partnership() {
       {/* Our Partners (Logo Carousel) Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-center">Our Partners</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">{text.ourPartners}</h2>
           <PartnerLogoCarousel />
         </div>
       </section>
@@ -52,7 +88,7 @@ export default function Partnership() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Partnership Opportunities
+            {text.partnershipOpportunities}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {partnershipTypes.map((type) => {
@@ -77,10 +113,10 @@ export default function Partnership() {
                     ))}
                   </ul>
                   <Link
-                    href="/contact"
+                    href={text.contactLink}
                     className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                   >
-                    Learn More
+                    {text.learnMore}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
@@ -94,7 +130,7 @@ export default function Partnership() {
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Why Partner With Us?
+            {text.whyPartnerWithUs}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit) => {
@@ -122,16 +158,16 @@ export default function Partnership() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Ready to Partner With Us?
+              {text.readyToPartner}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Let's discuss how we can create a successful partnership together
+              {text.description}
             </p>
             <Link
-              href="/contact"
+              href={text.contactLink}
               className="btn-primary"
             >
-              Get Started
+              {text.getStarted}
             </Link>
           </div>
         </div>

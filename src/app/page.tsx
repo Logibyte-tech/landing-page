@@ -1,33 +1,86 @@
-'use client'
+"use client"
 
-import React from 'react'
-import Link from 'next/link'
-import { ArrowRight, Code, Globe, Shield, Users, Star, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import homeData from '@/data/home.json'
-
-const { features, testimonials, showcaseItems } = homeData
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ArrowRight, Code, Globe, Shield, Users, Star } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import enData from "@/data/EN/home.json";
+import frData from "@/data/FR/home.json";
 
 const featureIcons: { [key: string]: React.ElementType } = {
   Code,
   Globe,
   Shield,
   Users,
-}
+};
+
+const text = {
+  en: {
+    heroTitle: "Transforming Ideas into Digital Reality",
+    heroDesc:
+      "We help businesses thrive in the digital age with innovative solutions and cutting-edge technology",
+    ctaPrimary: "Get Started",
+    ctaSecondary: "Explore Services",
+    showcaseTitle: "Our Digital Solutions",
+    featuresTitle: "Our Services",
+    featuresDesc:
+      "We provide comprehensive digital solutions to help your business grow and thrive in the modern marketplace.",
+    featuresMain: "Everything you need to succeed in the digital world",
+    featuresLearnMore: "Learn more",
+    testimonialsTitle: "What Our Clients Say",
+    ctaSectionTitle: "Ready to Transform Your Business?",
+    ctaSectionDesc:
+      "Let's work together to create innovative solutions that drive your business forward.",
+    ctaSectionPrimary: "Get Started",
+    ctaSectionSecondary: "Learn More",
+    contactLink: "/contact",
+    servicesLink: "/services",
+    aboutLink: "/about",
+  },
+  fr: {
+    heroTitle: "Transformer les Idées en Réalité Numérique",
+    heroDesc:
+      "Nous aidons les entreprises à prospérer à l'ère numérique avec des solutions innovantes et une technologie de pointe",
+    ctaPrimary: "Commencer",
+    ctaSecondary: "Explorer nos Services",
+    showcaseTitle: "Nos Solutions Numériques",
+    featuresTitle: "Nos Services",
+    featuresDesc:
+      "Nous fournissons des solutions numériques complètes pour aider votre entreprise à croître et prospérer sur le marché moderne.",
+    featuresMain: "Tout ce dont vous avez besoin pour réussir dans le monde numérique",
+    featuresLearnMore: "En savoir plus",
+    testimonialsTitle: "Ce que Disent Nos Clients",
+    ctaSectionTitle: "Prêt à Transformer Votre Entreprise ?",
+    ctaSectionDesc:
+      "Travaillons ensemble pour créer des solutions innovantes qui font avancer votre entreprise.",
+    ctaSectionPrimary: "Commencer",
+    ctaSectionSecondary: "En Savoir Plus",
+    contactLink: "/fr/contact",
+    servicesLink: "/fr/services",
+    aboutLink: "/fr/about",
+  },
+};
 
 export default function Home() {
+  const pathname = usePathname();
+  const lang = pathname.startsWith("/fr") ? "fr" : "en";
+  const homeData = lang === "fr" ? frData : enData;
+  const t = text[lang];
+  const { features, testimonials, showcaseItems } = homeData;
+
   return (
     <main className="min-h-screen">
-      {/* Enhanced Hero Section with theme-aware gradient and local image */}
+      {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden tech-hero-bg">
         <div className="absolute inset-0">
           <img
             src="/images/hero-home.jpg"
-            alt="Digital technology abstract background"
+            alt={lang === "fr" ? "Arrière-plan abstrait de technologie numérique" : "Digital technology abstract background"}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -38,42 +91,35 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold tech-title mb-6 animate-fade-in">
-              Transforming Ideas into Digital Reality
+              {t.heroTitle}
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
-              We help businesses thrive in the digital age with innovative solutions and cutting-edge technology
+              {t.heroDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="btn-primary"
-              >
-                Get Started
+              <Link href={t.contactLink} className="btn-primary">
+                {t.ctaPrimary}
               </Link>
-              <Link href="/services" className="btn-secondary">
-                Explore Services
+              <Link href={t.servicesLink} className="btn-secondary">
+                {t.ctaSecondary}
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Showcase Slider Section with theme-aware styles */}
+      {/* Showcase Slider Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            Our Digital Solutions
+            {t.showcaseTitle}
           </h2>
-          
           <div className="showcase-slider">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
               spaceBetween={30}
               slidesPerView={1}
-              breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-              }}
+              breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
               pagination={{ clickable: true }}
               navigation={true}
@@ -98,22 +144,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section with theme-aware styles */}
+      {/* Features Section */}
       <section className="py-20 bg-white dark:bg-gray-900 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400">Our Services</h2>
+            <h2 className="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400">{t.featuresTitle}</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Everything you need to succeed in the digital world
+              {t.featuresMain}
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              We provide comprehensive digital solutions to help your business grow and thrive in the modern marketplace.
+              {t.featuresDesc}
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
               {features.map((feature) => {
-                const Icon = featureIcons[feature.icon]
+                const Icon = featureIcons[feature.icon];
                 return (
                   <div key={feature.name} className="flex flex-col">
                     <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
@@ -123,35 +169,31 @@ export default function Home() {
                     <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                       <p className="flex-auto">{feature.description}</p>
                       <p className="mt-6">
-                        <Link href="/contact" className="text-sm font-semibold leading-6 text-blue-600">
-                          Learn more <span aria-hidden="true">→</span>
+                        <Link href={t.contactLink} className="text-sm font-semibold leading-6 text-blue-600">
+                          {t.featuresLearnMore} <span aria-hidden="true">→</span>
                         </Link>
                       </p>
                     </dd>
                   </div>
-                )
+                );
               })}
             </dl>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section with theme-aware styles */}
+      {/* Testimonials Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            What Our Clients Say
+            {t.testimonialsTitle}
           </h2>
-          
           <div className="testimonial-slider max-w-6xl mx-auto">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
               spaceBetween={30}
               slidesPerView={1}
-              breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-              }}
+              breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
               autoplay={{ delay: 5000, disableOnInteraction: false }}
               pagination={{ clickable: true }}
               navigation={true}
@@ -178,30 +220,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section with theme-aware gradient */}
+      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-blue-900 dark:via-purple-900 dark:to-pink-900 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Ready to Transform Your Business?
+              {t.ctaSectionTitle}
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-700 dark:text-gray-300">
-              Let's work together to create innovative solutions that drive your business forward.
+              {t.ctaSectionDesc}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href="/contact"
-                className="btn-primary"
-              >
-                Get Started
+              <Link href={t.contactLink} className="btn-primary">
+                {t.ctaSectionPrimary}
               </Link>
-              <Link href="/about" className="btn-secondary">
-                Learn More
+              <Link href={t.aboutLink} className="btn-secondary">
+                {t.ctaSectionSecondary}
               </Link>
             </div>
           </div>
         </div>
       </section>
     </main>
-  )
+  );
 } 

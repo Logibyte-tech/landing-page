@@ -1,18 +1,44 @@
+'use client'
+
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { projects } from '@/data/projects.json'
+import Link from 'next/link'
+import { projects as enProjects } from '@/data/EN/projects.json'
+import { projects as frProjects } from '@/data/FR/projects.json'
 
 export default function Projects() {
+  // Detect language from URL
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const projects = lang === 'fr' ? frProjects : enProjects
+
+  const text = {
+    en: {
+      title: 'Our Projects',
+      subtitle: 'Discover our latest work and innovative solutions',
+      description: 'Explore our portfolio of successful projects that demonstrate our expertise in delivering cutting-edge technology solutions.',
+      viewProject: 'View Project',
+      viewCaseStudy: 'View Case Study',
+      backgroundAlt: 'Project portfolio background',
+    },
+    fr: {
+      title: 'Nos Projets',
+      subtitle: 'Découvrez nos derniers travaux et solutions innovantes',
+      description: 'Explorez notre portefeuille de projets réussis qui démontrent notre expertise dans la livraison de solutions technologiques de pointe.',
+      viewProject: 'Voir le Projet',
+      viewCaseStudy: 'Voir l\'Étude de Cas',
+      backgroundAlt: 'Arrière-plan du portefeuille de projets',
+    },
+  }[lang]
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Hero Section with local background image */}
+    <div className="bg-white dark:bg-gray-900">
+      {/* Hero Section */}
       <section className="relative py-20 overflow-hidden tech-hero-bg">
         <div className="absolute inset-0">
           <img
             src="/images/hero-projects.jpg"
-            alt="Modern workspace background"
+            alt={text.backgroundAlt}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -22,10 +48,9 @@ export default function Projects() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">Our Projects</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Explore our portfolio of successful digital transformations and innovative solutions
-            </p>
+            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">{text.title}</h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">{text.subtitle}</p>
+            <p className="text-base text-gray-600 dark:text-gray-300">{text.description}</p>
           </div>
         </div>
       </section>
@@ -35,63 +60,46 @@ export default function Projects() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
-              >
-                <div className="relative h-48">
-                  <Image
+              <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                <div className="relative">
+                  <img
                     src={project.imageUrl}
                     alt={project.title}
-                    fill
-                    className="object-cover"
+                    className="w-full h-48 object-cover"
                   />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span
-                      className="px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full"
-                    >
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-full">
                       {project.category}
                     </span>
                   </div>
+                </div>
+                <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {project.title}
                   </h3>
-                  <p className="mt-4 text-gray-600 dark:text-gray-300 flex-grow">{project.description}</p>
-                  
-                  {project.caseStudyId && (
-                    <Link 
-                      href={`/case-studies/${project.caseStudyId}`}
-                      className="mt-6 inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold group"
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+                  {project.caseStudyId ? (
+                    <Link
+                      href={`${lang === 'fr' ? '/fr' : ''}/case-studies/${project.caseStudyId}`}
+                      className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                     >
-                      View Case Study
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      {text.viewCaseStudy}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`${lang === 'fr' ? '/fr' : ''}/projects/${project.id}`}
+                      className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                    >
+                      {text.viewProject}
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   )}
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Let's discuss how we can help transform your business with innovative technology solutions
-            </p>
-            <Link
-              href="/contact"
-              className="btn-primary"
-            >
-              Get Started
-            </Link>
           </div>
         </div>
       </section>

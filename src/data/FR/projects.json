@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "id": 7,
+      "title": "Recherche et PoC de Stablecoin pour Circle",
+      "description": "Conduit des recherches approfondies et développé une preuve de concept pour un nouveau protocole de stablecoin pour Circle, en se concentrant sur la scalabilité et la conformité réglementaire.",
+      "category": "Fintech",
+      "imageUrl": "/images/projects/6.jpg",
+      "caseStudyId": 5
+    },
+    {
+      "id": 6,
+      "title": "Implémentation IoT",
+      "description": "Implémenté des solutions IoT pour une installation de fabrication intelligente, réduisant les coûts opérationnels de 25%.",
+      "category": "IoT",
+      "imageUrl": "/images/casestudy/4.jpg",
+      "caseStudyId": 4
+    },
+    {
+      "id": 5,
+      "title": "Plateforme d'Analyse de Données",
+      "description": "Construit une plateforme d'analyse de données en temps réel pour une chaîne de vente au détail, permettant la prise de décision basée sur les données dans plus de 200 magasins.",
+      "category": "Analyse de Données",
+      "imageUrl": "/images/projects/5.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Développement Logiciel Sur Mesure",
+      "description": "Développé un système de planification des ressources d'entreprise sur mesure pour une entreprise manufacturière, rationalisant les opérations dans 10 emplacements.",
+      "category": "Développement Logiciel",
+      "imageUrl": "/images/projects/4.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Implémentation de Cybersécurité",
+      "description": "Implémenté des solutions de cybersécurité à l'échelle de l'entreprise pour un fournisseur de soins de santé, atteignant 99,9% de conformité de sécurité.",
+      "category": "Sécurité",
+      "imageUrl": "/images/projects/3.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Stratégie de Migration Cloud",
+      "description": "Développé et exécuté une stratégie de migration cloud pour une société de services financiers, réduisant les coûts d'infrastructure de 35%.",
+      "category": "Solutions Cloud",
+      "imageUrl": "/images/projects/2.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Transformation Numérique d'Entreprise",
+      "description": "Dirigé une initiative complète de transformation numérique pour une entreprise Fortune 500, résultant en une amélioration de 40% de l'efficacité opérationnelle.",
+      "category": "Transformation Numérique",
+      "imageUrl": "/images/projects/1.jpg"
+    }
+  ]
+} 

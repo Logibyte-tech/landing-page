@@ -1,9 +1,11 @@
+'use client'
+
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import { Building2, Users, Target, Award } from 'lucide-react'
 import Link from 'next/link'
-import aboutData from '@/data/about.json'
-
-const { stats, values, team } = aboutData
+import enData from '@/data/EN/about.json'
+import frData from '@/data/FR/about.json'
 
 const valueIcons: { [key: string]: React.ElementType } = {
   Building2,
@@ -13,6 +15,39 @@ const valueIcons: { [key: string]: React.ElementType } = {
 }
 
 export default function About() {
+  const pathname = usePathname()
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const aboutData = lang === 'fr' ? frData : enData
+  const { stats, values, team } = aboutData
+
+  // Text content for both languages
+  const text = {
+    en: {
+      heroTitle: 'About Logibyte',
+      heroDesc: `We are a leading IT consulting firm dedicated to helping businesses navigate the digital landscape. With over a decade of experience, we've helped numerous organizations transform their operations through innovative technology solutions.`,
+      storyTitle: 'Our Story',
+      storyDesc: `Founded in 2013, Logibyte has grown from a small team of passionate developers to a full-service IT consulting firm serving clients across various industries.`,
+      valuesTitle: 'Our Values',
+      valuesDesc: 'Our core values guide everything we do, from how we work with clients to how we develop our team.',
+      teamTitle: 'Our Leadership Team',
+      teamDesc: 'Meet the experienced professionals who lead our company and drive our success.',
+      cta: 'Get Started',
+      ctaLink: '/contact',
+    },
+    fr: {
+      heroTitle: 'À Propos de Logibyte',
+      heroDesc: `Nous sommes une firme de conseil IT de premier plan dédiée à aider les entreprises à naviguer dans le paysage numérique. Avec plus d'une décennie d'expérience, nous avons aidé de nombreuses organisations à transformer leurs opérations grâce à des solutions technologiques innovantes.`,
+      storyTitle: 'Notre Histoire',
+      storyDesc: `Fondée en 2013, Logibyte a grandi d'une petite équipe de développeurs passionnés à une firme de conseil IT à service complet desservant des clients dans diverses industries.`,
+      valuesTitle: 'Nos Valeurs',
+      valuesDesc: 'Nos valeurs fondamentales guident tout ce que nous faisons, de la façon dont nous travaillons avec les clients à la façon dont nous développons notre équipe.',
+      teamTitle: 'Notre Équipe de Direction',
+      teamDesc: `Rencontrez les professionnels expérimentés qui dirigent notre entreprise et stimulent notre succès.`,
+      cta: 'Commencer',
+      ctaLink: '/fr/contact',
+    },
+  }[lang]
+
   return (
     <div className="bg-white dark:bg-gray-900">
       {/* Hero Section with local background image */}
@@ -20,7 +55,7 @@ export default function About() {
         <div className="absolute inset-0">
           <img
             src="/images/hero-about.jpg"
-            alt="Teamwork meeting background"
+            alt={lang === 'fr' ? "Arrière-plan de réunion d'équipe" : "Teamwork meeting background"}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -30,11 +65,9 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">About Logibyte</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">{text.heroTitle}</h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              We are a leading IT consulting firm dedicated to helping businesses navigate the digital landscape. 
-              With over a decade of experience, we've helped numerous organizations transform their operations 
-              through innovative technology solutions.
+              {text.heroDesc}
             </p>
           </div>
         </div>
@@ -43,10 +76,9 @@ export default function About() {
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Story</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">{text.storyTitle}</h2>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Founded in 2013, Logibyte has grown from a small team of passionate developers to a full-service 
-              IT consulting firm serving clients across various industries.
+              {text.storyDesc}
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -67,9 +99,9 @@ export default function About() {
       {/* Values section */}
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Values</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">{text.valuesTitle}</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Our core values guide everything we do, from how we work with clients to how we develop our team.
+            {text.valuesDesc}
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -95,9 +127,9 @@ export default function About() {
       {/* Team section */}
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Our Leadership Team</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">{text.teamTitle}</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Meet the experienced professionals who lead our company and drive our success.
+            {text.teamDesc}
           </p>
         </div>
         <ul
@@ -116,10 +148,10 @@ export default function About() {
 
       <div className="text-center mt-16">
         <Link
-          href="/contact"
+          href={text.ctaLink}
           className="btn-primary"
         >
-          Get Started
+          {text.cta}
         </Link>
       </div>
     </div>

@@ -1,0 +1,73 @@
+{
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "L'Avenir du Cloud Computing en 2024",
+      "description": "Explorez les dernières tendances et innovations qui façonnent le paysage du cloud computing, du edge computing aux architectures serverless.",
+      "category": "Technologie Cloud",
+      "author": "Sarah Chen",
+      "date": "15 mars 2024",
+      "readTime": "8 min de lecture",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Meilleures Pratiques de Cybersécurité pour le Télétravail",
+      "description": "Mesures de sécurité essentielles et meilleures pratiques pour protéger votre organisation à l'ère des environnements de travail à distance et hybrides.",
+      "category": "Cybersécurité",
+      "author": "Michael Rodriguez",
+      "date": "10 mars 2024",
+      "readTime": "6 min de lecture",
+      "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Transformation Numérique : Une Feuille de Route vers le Succès",
+      "description": "Apprenez à naviguer dans le parcours complexe de la transformation numérique et à stimuler un changement significatif dans votre organisation.",
+      "category": "Transformation Numérique",
+      "author": "Emily Thompson",
+      "date": "5 mars 2024",
+      "readTime": "10 min de lecture",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 4,
+      "title": "L'Ascension de l'IA dans les Logiciels d'Entreprise",
+      "description": "Découvrez comment l'intelligence artificielle révolutionne les logiciels d'entreprise et crée de nouvelles opportunités d'innovation commerciale.",
+      "category": "Intelligence Artificielle",
+      "author": "David Kim",
+      "date": "28 février 2024",
+      "readTime": "7 min de lecture",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 5,
+      "title": "DevOps : Briser les Silos pour une Meilleure Livraison",
+      "description": "Comment l'implémentation des pratiques DevOps peut améliorer la collaboration, accélérer la livraison et améliorer la qualité des logiciels.",
+      "category": "DevOps",
+      "author": "Lisa Wang",
+      "date": "20 février 2024",
+      "readTime": "9 min de lecture",
+      "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Prise de Décision Basée sur les Données dans l'Entreprise Moderne",
+      "description": "Explorez comment les entreprises exploitent l'analyse de données pour prendre des décisions éclairées et gagner des avantages concurrentiels.",
+      "category": "Analyse de Données",
+      "author": "James Wilson",
+      "date": "15 février 2024",
+      "readTime": "8 min de lecture",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+    }
+  ],
+  "categories": [
+    "Tous les Articles",
+    "Technologie Cloud",
+    "Cybersécurité",
+    "Transformation Numérique",
+    "Intelligence Artificielle",
+    "DevOps",
+    "Analyse de Données"
+  ]
+} 

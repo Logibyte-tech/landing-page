@@ -1,0 +1,37 @@
+{
+  "main": [
+    { "name": "Accueil", "href": "/fr" },
+    { "name": "À Propos", "href": "/fr/about" },
+    { "name": "Services", "href": "/fr/services" },
+    { "name": "Projets", "href": "/fr/projects" },
+    { "name": "Études de Cas", "href": "/fr/case-studies" },
+    { "name": "Blog", "href": "/fr/blog" },
+    { "name": "Partenariat", "href": "/fr/partnership" },
+    { "name": "Contact", "href": "/fr/contact" }
+  ],
+  "company": [
+    { "name": "À Propos", "href": "/fr/about" },
+    { "name": "Carrières", "href": "/fr/careers" },
+    { "name": "Blog", "href": "/fr/blog" },
+    { "name": "Partenariat", "href": "/fr/partnership" }
+  ],
+  "services": [
+    { "name": "Développement de Logiciels Sur Mesure", "href": "/fr/services#custom-software" },
+    { "name": "Solutions Cloud", "href": "/fr/services#cloud-solutions" },
+    { "name": "Cybersécurité", "href": "/fr/services#cybersecurity" },
+    { "name": "Solutions de Données", "href": "/fr/services#data-solutions" }
+  ],
+  "resources": [
+    { "name": "Projets", "href": "/fr/projects" },
+    { "name": "Études de Cas", "href": "/fr/case-studies" },
+    { "name": "Contact", "href": "/fr/contact" },
+    { "name": "Politique de Confidentialité", "href": "/fr/privacy" }
+  ],
+  "social": [
+    { "name": "Facebook", "href": "#" },
+    { "name": "X", "href": "#" },
+    { "name": "LinkedIn", "href": "https://www.linkedin.com/company/logibyte-tech/" },
+    { "name": "Instagram", "href": "#" },
+    { "name": "GitHub", "href": "https://github.com/Logibyte-tech" }
+  ]
+} 

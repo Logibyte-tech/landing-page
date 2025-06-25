@@ -1,75 +1,75 @@
 import { MetadataRoute } from 'next'
-import { caseStudies } from '@/data/caseStudies.json'
+import { caseStudies } from '@/data/EN/caseStudies.json'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const siteUrl = 'https://www.logibyte.ca'
+    const baseUrl = 'https://www.logibyte.ca'
 
     // URLs for individual case studies
     const caseStudyUrls = caseStudies.map(study => ({
-        url: `${siteUrl}/case-studies/${study.id}`,
+        url: `${baseUrl}/case-studies/${study.id}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: 0.8,
+        priority: 0.7,
     }))
 
     // Static page URLs
     const staticUrls = [
         {
-            url: siteUrl,
+            url: baseUrl,
             lastModified: new Date(),
             changeFrequency: 'yearly' as const,
             priority: 1,
         },
         {
-            url: `${siteUrl}/about`,
+            url: `${baseUrl}/about`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
         },
         {
-            url: `${siteUrl}/services`,
+            url: `${baseUrl}/services`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
         },
         {
-            url: `${siteUrl}/projects`,
+            url: `${baseUrl}/projects`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.9,
         },
         {
-            url: `${siteUrl}/case-studies`,
+            url: `${baseUrl}/case-studies`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.9,
         },
         {
-            url: `${siteUrl}/partnership`,
+            url: `${baseUrl}/partnership`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.7,
         },
         {
-            url: `${siteUrl}/careers`,
+            url: `${baseUrl}/careers`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.6,
         },
         {
-            url: `${siteUrl}/blog`,
+            url: `${baseUrl}/blog`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.7,
         },
         {
-            url: `${siteUrl}/contact`,
+            url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'yearly' as const,
             priority: 0.5,
         },
         {
-            url: `${siteUrl}/privacy`,
+            url: `${baseUrl}/privacy`,
             lastModified: new Date(),
             changeFrequency: 'yearly' as const,
             priority: 0.3,

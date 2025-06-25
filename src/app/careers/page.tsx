@@ -1,10 +1,11 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Briefcase, MapPin, Clock, GraduationCap, Users, Building2, Globe, Heart, Sparkles } from 'lucide-react'
-import careersData from '@/data/careers.json'
-
-const { openPositions, benefits } = careersData
+import { openPositions as enOpenPositions, benefits as enBenefits } from '@/data/EN/careers.json'
+import { openPositions as frOpenPositions, benefits as frBenefits } from '@/data/FR/careers.json'
 
 const benefitIcons: { [key: string]: React.ElementType } = {
   Briefcase,
@@ -17,6 +18,39 @@ const benefitIcons: { [key: string]: React.ElementType } = {
 }
 
 export default function Careers() {
+  // Detect language from URL
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const openPositions = lang === 'fr' ? frOpenPositions : enOpenPositions
+  const benefits = lang === 'fr' ? frBenefits : enBenefits
+
+  const text = {
+    en: {
+      title: 'Careers',
+      subtitle: 'Be part of a team that\'s shaping the future of digital transformation',
+      openPositions: 'Open Positions',
+      applyNow: 'Apply Now',
+      whyJoinUs: 'Why Join Us?',
+      dontSeeRole: 'Don\'t See Your Perfect Role?',
+      description: 'We\'re always looking for talented individuals. Send us your resume and we\'ll keep you in mind for future opportunities.',
+      sendResume: 'Send Your Resume',
+      contactLink: '/contact',
+      backgroundAlt: 'Career growth background',
+    },
+    fr: {
+      title: 'Carrières',
+      subtitle: 'Faites partie d\'une équipe qui façonne l\'avenir de la transformation numérique',
+      openPositions: 'Postes Ouverts',
+      applyNow: 'Postuler Maintenant',
+      whyJoinUs: 'Pourquoi Nous Rejoindre ?',
+      dontSeeRole: 'Vous Ne Voyez Pas Votre Rôle Idéal ?',
+      description: 'Nous cherchons toujours des individus talentueux. Envoyez-nous votre CV et nous vous garderons à l\'esprit pour les futures opportunités.',
+      sendResume: 'Envoyer Votre CV',
+      contactLink: '/fr/contact',
+      backgroundAlt: 'Arrière-plan de croissance de carrière',
+    },
+  }[lang]
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section with local background image */}
@@ -24,7 +58,7 @@ export default function Careers() {
         <div className="absolute inset-0">
           <img
             src="/images/hero-careers.jpg"
-            alt="Career growth background"
+            alt={text.backgroundAlt}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -34,9 +68,9 @@ export default function Careers() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">Careers</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">{text.title}</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Be part of a team that's shaping the future of digital transformation
+              {text.subtitle}
             </p>
           </div>
         </div>
@@ -46,7 +80,7 @@ export default function Careers() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Open Positions
+            {text.openPositions}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {openPositions.map((position) => (
@@ -79,10 +113,10 @@ export default function Careers() {
                   ))}
                 </div>
                 <a
-                  href={`/careers/${position.id}`}
+                  href={`${lang === 'fr' ? '/fr' : ''}/careers/${position.id}`}
                   className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                 >
-                  Apply Now
+                  {text.applyNow}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </div>
@@ -95,7 +129,7 @@ export default function Careers() {
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Why Join Us?
+            {text.whyJoinUs}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit) => {
@@ -121,16 +155,16 @@ export default function Careers() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Don't See Your Perfect Role?
+              {text.dontSeeRole}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.
+              {text.description}
             </p>
             <Link
-              href="/contact"
+              href={text.contactLink}
               className="btn-primary"
             >
-              Send Your Resume
+              {text.sendResume}
             </Link>
           </div>
         </div>

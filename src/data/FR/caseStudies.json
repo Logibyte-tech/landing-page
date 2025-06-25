@@ -1,0 +1,94 @@
+{
+  "caseStudies": [
+    {
+      "id": 5,
+      "title": "Recherche et Preuve de Concept du Protocole Stablecoin Circle",
+      "client": "Circle",
+      "industry": "Technologie Financière (Fintech)",
+      "challenge": "Circle visait à explorer les protocoles de stablecoin de nouvelle génération pour améliorer le débit des transactions et assurer l'adhésion aux réglementations financières mondiales en évolution. Ils avaient besoin d'un rapport de recherche complet et d'une preuve de concept fonctionnelle pour valider la faisabilité d'une nouvelle architecture.",
+      "solution": "Notre équipe a effectué une analyse multi-facettes des technologies blockchain existantes et conçu une architecture hybride novatrice. Nous avons livré un document de recherche détaillé décrivant le paysage du marché et notre solution proposée, suivi d'une PoC réussie démontrant des transactions rapides et sécurisées.",
+      "results": [
+        "Livré un rapport de recherche de 150 pages sur les tendances technologiques des stablecoins.",
+        "La PoC a traité plus de 1 000 transactions par seconde dans un environnement de test.",
+        "Atteint 100% de conformité avec les tests de stress réglementaires simulés.",
+        "Fourni des recommandations exploitables pour la feuille de route de développement future de Circle."
+      ],
+      "duration": "4 mois",
+      "teamSize": "8 experts",
+      "technologies": ["Blockchain", "Solidity", "USDC", "Cryptographie", "React"],
+      "imageUrl": "/images/casestudy/5.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Implémentation IoT pour Fabrication Intelligente",
+      "client": "ManufactureTech Industries",
+      "industry": "Manufacture",
+      "challenge": "Une installation de fabrication traditionnelle devait implémenter des solutions IoT pour surveiller les performances des équipements, prédire les besoins de maintenance et optimiser les processus de production en temps réel.",
+      "solution": "Conçu et déployé un écosystème IoT complet incluant des réseaux de capteurs, une infrastructure de calcul edge, une plateforme d'analyse en temps réel et des algorithmes de maintenance prédictive.",
+      "results": [
+        "25% de réduction des coûts opérationnels",
+        "40% d'amélioration du temps de fonctionnement des équipements",
+        "Surveillance de production en temps réel atteinte",
+        "Maintenance prédictive prévenant 90% des temps d'arrêt non planifiés"
+      ],
+      "duration": "14 mois",
+      "teamSize": "18+ experts",
+      "technologies": ["Capteurs IoT", "Edge Computing", "Azure IoT Hub", "Power BI", "Machine Learning"],
+      "imageUrl": "/images/casestudy/4.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Modernisation de Plateforme de Données de Santé",
+      "client": "HealthTech Solutions",
+      "industry": "Santé",
+      "challenge": "Un fournisseur de technologie de santé devait moderniser sa plateforme de données pour gérer l'augmentation des volumes de données et permettre des analyses avancées.",
+      "solution": "Développé une plateforme de données évolutive avec des capacités d'analyse en temps réel, une intégration de machine learning et des mesures de sécurité conformes HIPAA.",
+      "results": [
+        "5x augmentation de la vitesse de traitement des données",
+        "90% de réduction du temps d'accès aux données",
+        "Capacités d'analyse avancées activées",
+        "Conformité HIPAA complète atteinte"
+      ],
+      "duration": "15 mois",
+      "teamSize": "20+ experts",
+      "technologies": ["GCP", "BigQuery", "TensorFlow", "Python", "Kubernetes"],
+      "imageUrl": "/images/casestudy/3.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Refonte de Cybersécurité pour Institution Financière",
+      "client": "SecureBank",
+      "industry": "Finance",
+      "challenge": "Une banque régionale devait améliorer sa posture de sécurité et se conformer aux nouvelles exigences réglementaires tout en maintenant la disponibilité du système.",
+      "solution": "Implémenté un cadre de sécurité complet incluant une architecture zero-trust, une détection de menaces avancée et une surveillance de conformité automatisée.",
+      "results": [
+        "100% de conformité avec les nouvelles réglementations",
+        "75% de réduction des incidents de sécurité",
+        "Détection de menaces en temps réel implémentée",
+        "Rapports de conformité automatisés"
+      ],
+      "duration": "12 mois",
+      "teamSize": "15+ experts",
+      "technologies": ["Azure", "SIEM", "Zero Trust", "IA/ML", "Automatisation"],
+      "imageUrl": "/images/casestudy/2.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Transformation Numérique pour Détaillant Mondial",
+      "client": "RetailCorp International",
+      "industry": "Commerce de Détail",
+      "challenge": "Une chaîne de vente au détail de premier plan devait moderniser ses systèmes legacy et implémenter une infrastructure basée sur le cloud pour soutenir ses opérations mondiales.",
+      "solution": "Nous avons conçu et implémenté une stratégie de transformation numérique complète, incluant la migration cloud, l'architecture microservices et une plateforme e-commerce moderne.",
+      "results": [
+        "40% de réduction des coûts opérationnels",
+        "60% d'amélioration des performances du système",
+        "99,9% de disponibilité atteinte",
+        "Intégration transparente dans plus de 50 emplacements"
+      ],
+      "duration": "18 mois",
+      "teamSize": "25+ experts",
+      "technologies": ["AWS", "Kubernetes", "React", "Node.js", "MongoDB"],
+      "imageUrl": "/images/casestudy/1.jpg"
+    }
+  ]
+} 

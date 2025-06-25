@@ -1,0 +1,59 @@
+{
+  "benefits": [
+    {
+      "name": "Collaboration Stratégique",
+      "description": "Unissez vos forces avec nous pour créer des solutions innovantes qui stimulent la croissance commerciale et l'avancement technologique.",
+      "icon": "Handshake"
+    },
+    {
+      "name": "Réseau Mondial",
+      "description": "Accédez à notre vaste réseau de leaders de l'industrie, clients et partenaires technologiques dans le monde entier.",
+      "icon": "Globe"
+    },
+    {
+      "name": "Équipe d'Experts",
+      "description": "Travaillez avec notre équipe de professionnels expérimentés qui apportent une expertise approfondie dans divers domaines technologiques.",
+      "icon": "Users"
+    },
+    {
+      "name": "Hub d'Innovation",
+      "description": "Collaborez sur des projets de pointe et restez en avance sur les tendances de l'industrie grâce à nos initiatives d'innovation.",
+      "icon": "Rocket"
+    }
+  ],
+  "partnershipTypes": [
+    {
+      "title": "Partenariat Technologique",
+      "description": "Intégrez nos solutions à votre stack technologique",
+      "features": [
+        "Intégration d'API",
+        "Développement Sur Mesure",
+        "Support Technique",
+        "Marketing Conjoint"
+      ],
+      "icon": "Rocket"
+    },
+    {
+      "title": "Partenariat de Canal",
+      "description": "Revendez nos solutions à vos clients",
+      "features": [
+        "Partage des Revenus",
+        "Formation Commerciale",
+        "Support Marketing",
+        "Support Dédié"
+      ],
+      "icon": "Users"
+    },
+    {
+      "title": "Partenariat Stratégique",
+      "description": "Créez des solutions conjointes pour des marchés spécifiques",
+      "features": [
+        "Analyse de Marché",
+        "Développement de Solutions",
+        "Stratégie de Go-to-Market",
+        "Coentreprises"
+      ],
+      "icon": "Handshake"
+    }
+  ]
+} 

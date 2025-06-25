@@ -1,0 +1,56 @@
+{
+  "services": [
+    {
+      "id": "custom-software",
+      "title": "Développement Logiciel Sur Mesure",
+      "description": "Solutions logicielles personnalisées conçues pour répondre à vos besoins spécifiques. Des applications web aux logiciels d'entreprise, nous construisons des solutions évolutives et maintenables.",
+      "icon": "Code2",
+      "features": [
+        "Développement d'Applications Web",
+        "Solutions Logicielles d'Entreprise",
+        "Développement et Intégration d'API",
+        "Modernisation des Systèmes Legacy",
+        "Assurance Qualité et Tests"
+      ]
+    },
+    {
+      "id": "cloud-solutions",
+      "title": "Solutions Cloud",
+      "description": "Exploitez la puissance du cloud computing avec nos services cloud complets. Nous aidons les entreprises à migrer, optimiser et gérer leur infrastructure cloud.",
+      "icon": "Cloud",
+      "features": [
+        "Migration et Stratégie Cloud",
+        "Solutions AWS/Azure/GCP",
+        "Gestion d'Infrastructure Cloud",
+        "Architecture Serverless",
+        "Sécurité et Conformité Cloud"
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersécurité",
+      "description": "Protégez vos actifs numériques avec nos solutions de cybersécurité complètes. Nous mettons en œuvre des mesures de sécurité robustes pour protéger votre entreprise des menaces.",
+      "icon": "Shield",
+      "features": [
+        "Évaluation et Audit de Sécurité",
+        "Détection et Prévention des Menaces",
+        "Conformité et Gestion des Risques",
+        "Conception d'Architecture de Sécurité",
+        "Planification de Réponse aux Incidents"
+      ]
+    },
+    {
+      "id": "data-solutions",
+      "title": "Solutions de Données",
+      "description": "Transformez vos données en insights exploitables avec nos solutions de données. Nous aidons les entreprises à collecter, traiter et analyser les données pour prendre des décisions éclairées.",
+      "icon": "Database",
+      "features": [
+        "Analyse de Données et BI",
+        "Traitement de Big Data",
+        "Solutions d'Entrepôt de Données",
+        "Machine Learning et IA",
+        "Visualisation de Données"
+      ]
+    }
+  ]
+} 

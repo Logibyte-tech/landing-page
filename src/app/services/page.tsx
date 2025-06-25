@@ -1,26 +1,53 @@
-import React from 'react'
-import { Code2, Cloud, Shield, Database, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import servicesData from '@/data/services.json'
+'use client'
 
-const { services } = servicesData
+import React from 'react'
+import { Code, Cloud, Shield, Database, ArrowRight, Check } from 'lucide-react'
+import Link from 'next/link'
+import { services as enServices } from '@/data/EN/services.json'
+import { services as frServices } from '@/data/FR/services.json'
 
 const serviceIcons: { [key: string]: React.ElementType } = {
-  Code2,
+  Code,
   Cloud,
   Shield,
   Database,
 }
 
 export default function Services() {
+  // Detect language from URL
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const services = lang === 'fr' ? frServices : enServices
+
+  const text = {
+    en: {
+      title: 'Our Services',
+      subtitle: 'Comprehensive technology solutions to drive your business forward',
+      description: 'We offer a wide range of technology services designed to help your business thrive in the digital age.',
+      getStarted: 'Get Started',
+      learnMore: 'Learn More',
+      contactLink: '/contact',
+      backgroundAlt: 'Technology services background',
+    },
+    fr: {
+      title: 'Nos Services',
+      subtitle: 'Solutions technologiques complètes pour faire avancer votre entreprise',
+      description: 'Nous offrons une large gamme de services technologiques conçus pour aider votre entreprise à prospérer à l\'ère numérique.',
+      getStarted: 'Commencer',
+      learnMore: 'En Savoir Plus',
+      contactLink: '/fr/contact',
+      backgroundAlt: 'Arrière-plan des services technologiques',
+    },
+  }[lang]
+
   return (
     <div className="bg-white dark:bg-gray-900">
-      {/* Hero Section with local background image */}
+      {/* Hero Section */}
       <section className="relative py-20 overflow-hidden tech-hero-bg">
         <div className="absolute inset-0">
           <img
             src="/images/hero-services.jpg"
-            alt="Cloud computing background"
+            alt={text.backgroundAlt}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -30,80 +57,67 @@ export default function Services() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">Our Services</h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Comprehensive technology solutions to drive your business forward. We combine expertise,
-              innovation, and industry best practices to deliver exceptional results.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">{text.title}</h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">{text.subtitle}</p>
+            <p className="text-base text-gray-600 dark:text-gray-300">{text.description}</p>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400">What We Offer</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            Comprehensive Technology Solutions
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            From custom software development to digital transformation, we provide end-to-end solutions
-            that help businesses thrive in the digital age.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {services.map((service) => {
               const Icon = serviceIcons[service.icon as keyof typeof serviceIcons]
               return (
-              <div key={service.id} className="flex flex-col">
-                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                  {Icon && <Icon className="h-5 w-5 flex-none text-blue-600 dark:text-blue-400" aria-hidden="true" />}
-                  {service.title}
-                </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
-                  <p className="flex-auto">{service.description}</p>
-                  <ul role="list" className="mt-8 space-y-3 text-sm">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex gap-x-3">
-                        <ArrowRight className="h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
+                <div key={service.title} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-6">
+                    {Icon && <Icon className="w-8 h-8 text-blue-600 dark:text-blue-400" />}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">{service.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature: string) => (
+                      <li key={feature} className="flex items-center text-gray-600 dark:text-gray-300">
+                        <Check className="h-5 w-5 text-green-500 mr-3" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                </dd>
-              </div>
-            )})}
-          </dl>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="relative isolate mt-32 px-6 py-32 sm:mt-40 sm:py-40 lg:px-8">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-blue-900 dark:via-purple-900 dark:to-pink-900 opacity-90"></div>
-        </div>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Let's work together to create innovative solutions that drive your business forward.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/contact"
-              className="btn-primary"
-            >
-              Get Started
-            </Link>
-            <a href="/about" className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
+                  <Link
+                    href={text.contactLink}
+                    className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                  >
+                    {text.learnMore}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              )
+            })}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+              Let's discuss how our services can help transform your business.
+            </p>
+            <Link
+              href={text.contactLink}
+              className="btn-primary"
+            >
+              {text.getStarted}
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 } 

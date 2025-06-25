@@ -1,0 +1,101 @@
+{
+  "openPositions": [
+    {
+      "id": 1,
+      "title": "Ingénieur Logiciel Senior",
+      "department": "Ingénierie",
+      "location": "Télétravail",
+      "type": "Temps plein",
+      "description": "Rejoignez notre équipe d'ingénierie pour construire des solutions évolutives et innovantes en utilisant des technologies de pointe.",
+      "requirements": [
+        "5+ années d'expérience en développement logiciel",
+        "Excellente expertise en JavaScript/TypeScript",
+        "Expérience avec React et Node.js",
+        "Connaissance des plateformes cloud (AWS/Azure/GCP)",
+        "Excellentes compétences en résolution de problèmes"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Ingénieur DevOps",
+      "department": "Ingénierie",
+      "location": "Hybride",
+      "type": "Temps plein",
+      "description": "Aidez-nous à construire et maintenir notre infrastructure cloud et nos pipelines CI/CD.",
+      "requirements": [
+        "3+ années d'expérience DevOps",
+        "Expérience avec la conteneurisation et l'orchestration",
+        "Connaissance de l'infrastructure as code",
+        "Implémentation de pipelines CI/CD",
+        "Expertise en plateformes cloud"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Architecte de Solutions",
+      "department": "Services Professionnels",
+      "location": "Télétravail",
+      "type": "Temps plein",
+      "description": "Concevez et implémentez des solutions d'entreprise pour nos clients.",
+      "requirements": [
+        "7+ années d'expérience en conseil IT",
+        "Solides compétences en conception d'architecture",
+        "Expérience avec les systèmes d'entreprise",
+        "Excellentes compétences en communication",
+        "Expertise en architecture cloud"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Analyste en Cybersécurité",
+      "department": "Sécurité",
+      "location": "Hybride",
+      "type": "Temps plein",
+      "description": "Protégez les actifs numériques de nos clients et assurez la conformité de sécurité.",
+      "requirements": [
+        "4+ années d'expérience en sécurité",
+        "Certifications de sécurité (CISSP, CEH, etc.)",
+        "Expérience avec les outils et frameworks de sécurité",
+        "Connaissance des standards de conformité",
+        "Expérience en réponse aux incidents"
+      ]
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Rémunération Concurrentielle",
+      "description": "Nous offrons des salaires concurrentiels et des packages d'avantages complets.",
+      "icon": "Briefcase"
+    },
+    {
+      "name": "Arrangements de Travail Flexibles",
+      "description": "Travaillez à distance ou dans nos bureaux modernes avec des heures flexibles.",
+      "icon": "Clock"
+    },
+    {
+      "name": "Développement Professionnel",
+      "description": "Opportunités d'apprentissage continu et parcours de croissance de carrière.",
+      "icon": "GraduationCap"
+    },
+    {
+      "name": "Culture Collaborative",
+      "description": "Travaillez avec des professionnels talentueux dans un environnement de soutien.",
+      "icon": "Users"
+    },
+    {
+      "name": "Santé et Bien-être",
+      "description": "Couverture de santé complète et programmes de bien-être.",
+      "icon": "Heart"
+    },
+    {
+      "name": "Opportunités Mondiales",
+      "description": "Travaillez avec des clients et équipes internationaux.",
+      "icon": "Globe"
+    },
+    {
+      "name": "Focus sur l'Innovation",
+      "description": "Travaillez avec des technologies de pointe et des solutions innovantes.",
+      "icon": "Sparkles"
+    }
+  ]
+} 

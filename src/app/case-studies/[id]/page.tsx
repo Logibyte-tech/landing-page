@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, Calendar, Users, CheckCircle, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { caseStudies } from '@/data/caseStudies.json'
+import { caseStudies as enCaseStudies } from '@/data/EN/caseStudies.json'
+import { caseStudies as frCaseStudies } from '@/data/FR/caseStudies.json'
 import { Metadata, ResolvingMetadata } from 'next'
 
 interface CaseStudyPageProps {
@@ -13,9 +14,10 @@ interface CaseStudyPageProps {
 }
 
 export async function generateStaticParams() {
-  return caseStudies.map(study => ({
-    id: study.id.toString(),
-  }))
+  // Generate params for both languages
+  const enParams = enCaseStudies.map(study => ({ id: study.id.toString() }))
+  const frParams = frCaseStudies.map(study => ({ id: study.id.toString() }))
+  return [...enParams, ...frParams]
 }
 
 export async function generateMetadata(
@@ -23,7 +25,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const id = parseInt(params.id)
-  const caseStudy = caseStudies.find(study => study.id === id)
+  const caseStudy = enCaseStudies.find(study => study.id === id) || frCaseStudies.find(study => study.id === id)
 
   if (!caseStudy) {
     return {
@@ -54,11 +56,52 @@ export async function generateMetadata(
 }
 
 export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const caseStudy = caseStudies.find(study => study.id === parseInt(params.id))
+  const id = parseInt(params.id)
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const caseStudies = lang === 'fr' ? frCaseStudies : enCaseStudies
+  const caseStudy = caseStudies.find(study => study.id === id)
 
   if (!caseStudy) {
     notFound()
   }
+
+  const text = {
+    en: {
+      backToCaseStudies: 'Back to Case Studies',
+      client: 'Client:',
+      challenge: 'The Challenge',
+      solution: 'Our Solution',
+      results: 'Results & Impact',
+      projectDetails: 'Project Details',
+      industry: 'Industry',
+      duration: 'Duration',
+      teamSize: 'Team Size',
+      technologiesUsed: 'Technologies Used',
+      readyToStart: 'Ready to Start Your Project?',
+      discussResults: "Let's discuss how we can help you achieve similar results.",
+      getStarted: 'Get Started',
+      caseStudiesLink: '/case-studies',
+      contactLink: '/contact',
+    },
+    fr: {
+      backToCaseStudies: 'Retour aux Études de Cas',
+      client: 'Client :',
+      challenge: 'Le Défi',
+      solution: 'Notre Solution',
+      results: 'Résultats et Impact',
+      projectDetails: 'Détails du Projet',
+      industry: 'Industrie',
+      duration: 'Durée',
+      teamSize: 'Taille de l\'Équipe',
+      technologiesUsed: 'Technologies Utilisées',
+      readyToStart: 'Prêt à Commencer Votre Projet ?',
+      discussResults: 'Discutons de la façon dont nous pouvons vous aider à obtenir des résultats similaires.',
+      getStarted: 'Commencer',
+      caseStudiesLink: '/fr/case-studies',
+      contactLink: '/fr/contact',
+    },
+  }[lang]
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -79,11 +122,11 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <Link 
-              href="/case-studies" 
+              href={text.caseStudiesLink} 
               className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Case Studies
+              {text.backToCaseStudies}
             </Link>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20">
@@ -103,7 +146,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
               </h1>
               
               <p className="text-xl text-gray-200 mb-6">
-                <strong>Client:</strong> {caseStudy.client}
+                <strong>{text.client}</strong> {caseStudy.client}
               </p>
               
               <div className="flex flex-wrap gap-6 text-gray-200">
@@ -131,7 +174,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {/* Challenge */}
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                    The Challenge
+                    {text.challenge}
                   </h2>
                   <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                     {caseStudy.challenge}
@@ -141,7 +184,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {/* Solution */}
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                    Our Solution
+                    {text.solution}
                   </h2>
                   <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                     {caseStudy.solution}
@@ -151,7 +194,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {/* Results */}
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                    Results & Impact
+                    {text.results}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {caseStudy.results.map((result, index) => (
@@ -169,19 +212,19 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {/* Project Details */}
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Project Details
+                    {text.projectDetails}
                   </h3>
                   <dl className="space-y-3">
                     <div>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Industry</dt>
+                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">{text.industry}</dt>
                       <dd className="text-gray-900 dark:text-white">{caseStudy.industry}</dd>
                     </div>
                     <div>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Duration</dt>
+                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">{text.duration}</dt>
                       <dd className="text-gray-900 dark:text-white">{caseStudy.duration}</dd>
                     </div>
                     <div>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Team Size</dt>
+                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">{text.teamSize}</dt>
                       <dd className="text-gray-900 dark:text-white">{caseStudy.teamSize}</dd>
                     </div>
                   </dl>
@@ -190,7 +233,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {/* Technologies */}
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Technologies Used
+                    {text.technologiesUsed}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {caseStudy.technologies.map((tech) => (
@@ -207,16 +250,16 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {/* CTA */}
                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Ready to Start Your Project?
+                    {text.readyToStart}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Let's discuss how we can help you achieve similar results.
+                    {text.discussResults}
                   </p>
                   <Link
-                    href="/contact"
+                    href={text.contactLink}
                     className="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
                   >
-                    Get Started
+                    {text.getStarted}
                     <ArrowUpRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>

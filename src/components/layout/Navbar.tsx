@@ -6,11 +6,15 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useTheme } from '../theme/ThemeProvider'
+import LanguageSwitcher from '../LanguageSwitcher'
+import enNavigation from '@/data/EN/navigation.json'
+import frNavigation from '@/data/FR/navigation.json'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
+  const language = pathname.startsWith('/fr') ? 'fr' : 'en'
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -22,34 +26,24 @@ export default function Navbar() {
     console.log('Current theme:', theme)
   }, [theme])
 
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Partnership', href: '/partnership' },
-    { name: 'Contact', href: '/contact' },
-  ]
+  const navigation = language === 'fr' ? frNavigation.main : enNavigation.main
 
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 fixed w-full z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-24 gap-2 md:gap-0">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href={language === 'fr' ? '/fr' : '/'} className="flex items-center">
             <Image src="/images/logo.svg" alt="Logibyte Logo" width={240} height={72} priority className="h-12 w-auto md:h-20" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 ml-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap ${
                   pathname === item.href
                     ? 'text-blue-600 dark:text-blue-400'
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
@@ -58,6 +52,8 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+            {/* Language Switcher */}
+            <LanguageSwitcher />
             {/* Theme Toggle Button */}
             <button
               onClick={() => {
@@ -77,6 +73,8 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
+            {/* Language Switcher for Mobile */}
+            <LanguageSwitcher />
             {/* Theme Toggle Button for Mobile */}
             <button
               onClick={() => {

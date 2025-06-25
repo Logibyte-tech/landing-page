@@ -1,10 +1,44 @@
+'use client'
+
 import React from 'react'
 import { Calendar, Clock, User, Tag } from 'lucide-react'
-import blogData from '@/data/blog.json'
-
-const { blogPosts, categories } = blogData
+import { blogPosts as enBlogPosts, categories as enCategories } from '@/data/EN/blog.json'
+import { blogPosts as frBlogPosts, categories as frCategories } from '@/data/FR/blog.json'
 
 export default function Blog() {
+  // Detect language from URL
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+  const lang = pathname.startsWith('/fr') ? 'fr' : 'en'
+  const blogPosts = lang === 'fr' ? frBlogPosts : enBlogPosts
+  const categories = lang === 'fr' ? frCategories : enCategories
+
+  const text = {
+    en: {
+      title: 'Insights & Blog',
+      subtitle: 'Latest insights, stories, and updates from Logibyte.',
+      blogInsights: 'Blog & Insights',
+      industryInsights: 'Industry Insights & Thought Leadership',
+      description: 'Stay informed about the latest trends, technologies, and best practices in the IT industry. Our experts share their knowledge and insights to help you navigate the digital landscape.',
+      stayUpdated: 'Stay Updated with Our Newsletter',
+      newsletterDescription: 'Get the latest insights, articles, and updates delivered straight to your inbox.',
+      emailPlaceholder: 'Enter your email',
+      subscribe: 'Subscribe',
+      backgroundAlt: 'Blog writing background',
+    },
+    fr: {
+      title: 'Aperçus & Blog',
+      subtitle: 'Derniers aperçus, histoires et mises à jour de Logibyte.',
+      blogInsights: 'Blog & Aperçus',
+      industryInsights: 'Aperçus de l\'Industrie & Leadership d\'Opinion',
+      description: 'Restez informé des dernières tendances, technologies et meilleures pratiques dans l\'industrie IT. Nos experts partagent leurs connaissances et aperçus pour vous aider à naviguer dans le paysage numérique.',
+      stayUpdated: 'Restez à Jour avec Notre Newsletter',
+      newsletterDescription: 'Recevez les derniers aperçus, articles et mises à jour directement dans votre boîte de réception.',
+      emailPlaceholder: 'Entrez votre email',
+      subscribe: 'S\'abonner',
+      backgroundAlt: 'Arrière-plan d\'écriture de blog',
+    },
+  }[lang]
+
   return (
     <div className="bg-white dark:bg-gray-900">
       {/* Hero Section with local background image */}
@@ -12,7 +46,7 @@ export default function Blog() {
         <div className="absolute inset-0">
           <img
             src="/images/hero-blog.jpg"
-            alt="Blog writing background"
+            alt={text.backgroundAlt}
             className="w-full h-full object-cover object-center opacity-70 dark:opacity-60"
             loading="eager"
             draggable="false"
@@ -22,21 +56,20 @@ export default function Blog() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">Insights & Blog</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">Latest insights, stories, and updates from Logibyte.</p>
+            <h1 className="text-4xl md:text-5xl font-bold tech-title mb-6">{text.title}</h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">{text.subtitle}</p>
           </div>
         </div>
       </section>
 
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400">Blog & Insights</h2>
+          <h2 className="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400">{text.blogInsights}</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            Industry Insights & Thought Leadership
+            {text.industryInsights}
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Stay informed about the latest trends, technologies, and best practices in the IT industry.
-            Our experts share their knowledge and insights to help you navigate the digital landscape.
+            {text.description}
           </p>
         </div>
 
@@ -79,7 +112,7 @@ export default function Blog() {
                 </div>
                 <div className="group relative">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300">
-                    <a href={`/blog/${post.id}`}>
+                    <a href={`${lang === 'fr' ? '/fr' : ''}/blog/${post.id}`}>
                       <span className="absolute inset-0" />
                       {post.title}
                     </a>
@@ -107,15 +140,15 @@ export default function Blog() {
         <div className="mx-auto mt-32 max-w-2xl sm:mt-40">
           <div className="relative isolate overflow-hidden bg-gray-900 dark:bg-gray-800 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Stay Updated with Our Newsletter
+              {text.stayUpdated}
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Get the latest insights, articles, and updates delivered straight to your inbox.
+              {text.newsletterDescription}
             </p>
             <form className="mx-auto mt-10 max-w-md">
               <div className="flex gap-x-4">
                 <label htmlFor="email-address" className="sr-only">
-                  Email address
+                  {lang === 'fr' ? 'Adresse email' : 'Email address'}
                 </label>
                 <input
                   id="email-address"
@@ -124,13 +157,13 @@ export default function Blog() {
                   autoComplete="email"
                   required
                   className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                  placeholder="Enter your email"
+                  placeholder={text.emailPlaceholder}
                 />
                 <button
                   type="submit"
                   className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Subscribe
+                  {text.subscribe}
                 </button>
               </div>
             </form>

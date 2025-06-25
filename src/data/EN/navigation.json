@@ -1,4 +1,14 @@
 {
+  "main": [
+    { "name": "Home", "href": "/" },
+    { "name": "About", "href": "/about" },
+    { "name": "Services", "href": "/services" },
+    { "name": "Projects", "href": "/projects" },
+    { "name": "Case Studies", "href": "/case-studies" },
+    { "name": "Blog", "href": "/blog" },
+    { "name": "Partnership", "href": "/partnership" },
+    { "name": "Contact", "href": "/contact" }
+  ],
   "company": [
     { "name": "About", "href": "/about" },
     { "name": "Careers", "href": "/careers" },
